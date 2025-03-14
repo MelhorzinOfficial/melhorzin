@@ -102,71 +102,200 @@ const AppContent = () => {
         init={particlesInit}
         loaded={particlesLoaded}
         options={{
+          fullScreen: {
+            enable: false
+          },
           background: {
             color: {
-              value: themeColors.background,
+              value: "transparent",
             },
           },
           fpsLimit: 120,
           interactivity: {
+            detect_on: "canvas",
             events: {
               onClick: {
                 enable: true,
-                mode: 'push',
+                mode: "push",
               },
               onHover: {
                 enable: true,
-                mode: 'repulse',
+                mode: "connect",
+                parallax: {
+                  enable: true,
+                  force: 60,
+                  smooth: 10
+                }
               },
+              resize: true,
             },
             modes: {
               push: {
                 quantity: 4,
               },
-              repulse: {
-                distance: 200,
-                duration: 0.4,
+              connect: {
+                distance: 80,
+                links: {
+                  opacity: 0.5
+                },
+                radius: 60
               },
             },
           },
           particles: {
             color: {
-              value: themeColors.text,
+              value: [
+                "#00FFFF", // Ciano
+                "#FF00FF", // Magenta
+                "#00FF00", // Verde neon
+                "#3366FF"  // Azul elétrico
+              ]
             },
             links: {
-              color: themeColors.text,
+              color: {
+                value: "#FFFFFF"
+              },
               distance: 150,
               enable: true,
-              opacity: 0.5,
+              opacity: 0.2,
               width: 1,
+              triangles: {
+                enable: false
+              },
+              shadow: {
+                blur: 5,
+                color: {
+                  value: "#00FFFF"
+                },
+                enable: true
+              }
             },
             move: {
-              direction: 'none',
+              direction: "none",
               enable: true,
               outModes: {
-                default: 'bounce',
+                default: "out",
+                bottom: "out",
+                left: "out",
+                right: "out",
+                top: "out"
               },
               random: false,
-              speed: 6,
+              speed: 2,
               straight: false,
+              trail: {
+                enable: true,
+                length: 20,
+                fillColor: {
+                  value: "#000000"
+                }
+              }
             },
             number: {
               density: {
                 enable: true,
+                area: 800,
               },
-              value: 80,
+              value: 70,
+              limit: 100,
             },
             opacity: {
-              value: 0.5,
+              animation: {
+                enable: true,
+                minimumValue: 0.1,
+                speed: 1,
+                sync: false,
+              },
+              random: {
+                enable: true,
+                minimumValue: 0.1,
+              },
+              value: 0.8,
             },
             shape: {
-              type: 'circle',
+              type: ["circle", "square", "polygon"],
+              options: {
+                polygon: {
+                  sides: 6
+                },
+                square: {
+                  sides: 4
+                }
+              }
             },
             size: {
-              value: { min: 1, max: 5 },
+              animation: {
+                enable: true,
+                minimumValue: 0.5,
+                speed: 1.5,
+                sync: false,
+              },
+              random: {
+                enable: true,
+                minimumValue: 1,
+              },
+              value: 3,
             },
+            stroke: {
+              color: {
+                value: "#00FFFF",
+                animation: {
+                  enable: true,
+                  speed: 1,
+                  sync: true
+                }
+              },
+              width: 1
+            },
+            zIndex: {
+              random: {
+                enable: true,
+                minimumValue: 0
+              },
+              value: 0,
+              opacityRate: 1,
+              sizeRate: 1,
+              velocityRate: 1
+            },
+            reduceDuplicates: true,
+            shadow: {
+              blur: 5,
+              color: {
+                value: "#00FFFF"
+              },
+              enable: true,
+              offset: {
+                x: 3,
+                y: 3
+              }
+            },
+            twinkle: {
+              lines: {
+                enable: true,
+                frequency: 0.005,
+                opacity: 0.7,
+                color: {
+                  value: ["#00FFFF", "#FF00FF", "#00FF00", "#3366FF"]
+                }
+              },
+              particles: {
+                enable: true,
+                frequency: 0.05,
+                opacity: 0.7,
+                color: {
+                  value: ["#00FFFF", "#FF00FF", "#00FF00", "#3366FF"]
+                }
+              }
+            }
           },
           detectRetina: true,
+          motion: {
+            disable: false,
+            reduce: {
+              factor: 4,
+              value: true
+            }
+          }
         }}
       />
       <SmoothScrollProvider>
@@ -291,7 +420,7 @@ const AppContent = () => {
                       <div className="w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: themeColors.cardBackground }}>
                         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M12 3C7.58 3 4 4.79 4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7c0-2.21-3.58-4-8-4zm0 2c3.71 0 6 1.29 6 2s-2.29 2-6 2-6-1.29-6-2 2.29-2 6-2zM4 9v3c0 1.68 2.37 3.08 5.5 3.71C8.69 15.44 8 14.75 8 14v-2c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2v2c0 .75-.69 1.44-1.5 1.71 3.13-.63 5.5-2.03 5.5-3.71V9c0 2.21-3.58 4-8 4s-8-1.79-8-4z"></path>
-                        </svg>
+                      </svg>
                       </div>
                       <h3 className="text-lg font-semibold mb-2">Database</h3>
                       <ul className="space-y-2">
