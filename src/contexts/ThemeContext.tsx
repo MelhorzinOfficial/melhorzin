@@ -14,6 +14,12 @@ interface ThemeColors {
   navText: string;
   footerBackground: string;
   footerText: string;
+  sectionBackground: string;
+  glowAccent: string;
+  glowPrimary: string;
+  glassBg: string;
+  gradientStart: string;
+  gradientEnd: string;
 }
 
 type Theme = 'light' | 'dark';
@@ -26,36 +32,46 @@ interface ThemeContextType {
 
 const themes = {
   light: {
-    background: '#f5f5f5',
-    text: '#222222',
-    primary: '#4a90e2',
-    secondary: '#50e3c2',
-    accent: '#f5a623',
-    cardBackground: '#ffffff',
-    cardBorder: '#dddddd',
-    buttonBackground: '#4a90e2',
+    background: '#f0f4ff',
+    text: '#1a1b4b',
+    primary: '#4361ee',
+    secondary: '#3f37c9',
+    accent: '#00e0f3',
+    cardBackground: 'rgba(255, 255, 255, 0.8)',
+    cardBorder: 'rgba(148, 163, 184, 0.2)',
+    buttonBackground: '#4361ee',
     buttonText: '#ffffff',
-    navBackground: 'rgba(255, 255, 255, 0.8)',
-    navText: '#222222',
-    footerBackground: '#f5f5f5',
-    footerText: '#222222',
-    sectionBackground: '#f5f5f5'
+    navBackground: 'rgba(255, 255, 255, 0.85)',
+    navText: '#1a1b4b',
+    footerBackground: '#e0e7ff',
+    footerText: '#1a1b4b',
+    sectionBackground: '#f0f4ff',
+    glowAccent: 'rgba(0, 224, 243, 0.6)',
+    glowPrimary: 'rgba(67, 97, 238, 0.6)',
+    glassBg: 'rgba(255, 255, 255, 0.25)',
+    gradientStart: '#4361ee',
+    gradientEnd: '#00e0f3'
   },
   dark: {
-    background: '#191970',       // Cor base (Midnight Blue)
-    text: '#e0e0e0',
-    primary: '#1e3a8a',          // Deep blue
-    secondary: '#0e1621',        // Quase preto com toque azul
-    accent: '#f50057',           // Rosa neon para destaques
-    cardBackground: '#262626',   // Card com fundo uniforme
-    cardBorder: '#404040',       // Borda discreta
-    buttonBackground: '#1e3a8a',
+    background: '#0f172a',
+    text: '#e2e8f0',
+    primary: '#4f46e5',
+    secondary: '#2563eb',
+    accent: '#06b6d4',
+    cardBackground: 'rgba(15, 23, 42, 0.7)',
+    cardBorder: 'rgba(71, 85, 105, 0.3)',
+    buttonBackground: '#4f46e5',
     buttonText: '#ffffff',
-    navBackground: 'rgba(25, 25, 112, 0.9)',
-    navText: '#e0e0e0',
-    footerBackground: '#0e1621',
-    footerText: '#e0e0e0',
-    sectionBackground: '#191970' // Usado para todas as seções
+    navBackground: 'rgba(15, 23, 42, 0.85)',
+    navText: '#e2e8f0',
+    footerBackground: '#0f172a',
+    footerText: '#e2e8f0',
+    sectionBackground: '#0f172a',
+    glowAccent: 'rgba(6, 182, 212, 0.6)',
+    glowPrimary: 'rgba(79, 70, 229, 0.6)',
+    glassBg: 'rgba(15, 23, 42, 0.5)',
+    gradientStart: '#4f46e5',
+    gradientEnd: '#06b6d4'
   },
 };
 
