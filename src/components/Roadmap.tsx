@@ -39,7 +39,7 @@ export const Roadmap: React.FC = () => {
   ];
 
   return (
-    <div className="py-16 relative">
+    <div className="py-16 relative" id="jornada">
       <h3
         className="text-4xl font-bold mb-12 text-center"
         style={{ color: themeColors.text }}
@@ -100,7 +100,7 @@ export const Roadmap: React.FC = () => {
                   style={
                     isLeft
                       ? { left: 'calc(50% - 10px)' }
-                      : { left: 'calc(50% + 10px)' }
+                      : { left: 'calc(50% + -10px)' }
                   }
                 >
                   <div

@@ -24,38 +24,39 @@ interface ThemeContextType {
   themeColors: ThemeColors;
 }
 
-const themes = {
+const themes: Record<Theme, ThemeColors> = {
   light: {
-    background: '#f0f4ff',
-    text: '#1a1b4b',
-    primary: '#4361ee',
-    secondary: '#3f37c9',
-    accent: '#00e0f3',
-    cardBg: 'rgba(255, 255, 255, 0.8)',
-    cardBorder: 'rgba(148, 163, 184, 0.2)',
-    glassBg: 'rgba(255, 255, 255, 0.25)',
-    gradientStart: '#4361ee',
-    gradientEnd: '#00e0f3',
-    glowAccent: 'rgba(0, 224, 243, 0.6)',
-    glowPrimary: 'rgba(67, 97, 238, 0.6)',
-    navBg: 'rgba(255, 255, 255, 0.85)',
+    background: '#e3e6f3', // Azul clarinho, remetendo ao céu de manhã
+    text: '#2c2c54', // Azul escuro elegante, fácil de ler
+    primary: '#5b6ef5', // Azul elétrico inspirado no céu estrelado
+    secondary: '#9c27b0', // Roxo nebuloso, trazendo um ar celestial
+    accent: '#ff9800', // Alaranjado quente, como o brilho de uma estrela
+    cardBg: 'rgba(255, 255, 255, 0.9)', // Fundo dos cards mais translúcido
+    cardBorder: 'rgba(92, 107, 192, 0.3)', // Contorno em azul suave
+    glassBg: 'rgba(240, 245, 255, 0.5)', // Efeito de vidro com leve transparência
+    gradientStart: '#5b6ef5', // Gradiente começando no azul estelar
+    gradientEnd: '#9c27b0', // Finalizando no roxo nebuloso
+    glowAccent: 'rgba(255, 152, 0, 0.5)', // Brilho laranja para destaque
+    glowPrimary: 'rgba(91, 110, 245, 0.4)', // Brilho sutil no azul principal
+    navBg: 'rgba(255, 255, 255, 0.8)', // Fundo da navegação mais clean
   },
   dark: {
-    background: '#0a0f1f', 
-    text: '#e2e8f0',
-    primary: '#4f46e5',
-    secondary: '#06b6d4',
-    accent: '#0ea5e9',
-    cardBg: 'rgba(15, 23, 42, 0.7)',
-    cardBorder: 'rgba(71, 85, 105, 0.3)',
-    glassBg: 'rgba(15, 23, 42, 0.5)',
-    gradientStart: '#4f46e5',
-    gradientEnd: '#06b6d4',
-    glowAccent: 'rgba(14, 165, 233, 0.5)',
-    glowPrimary: 'rgba(79, 70, 229, 0.6)',
-    navBg: 'rgba(15, 23, 42, 0.7)',
+    background: '#0a0a23', // Azul bem escuro, como o espaço profundo
+    text: '#c3c7f3', // Lilás claro, semelhante a brilhos estelares
+    primary: '#7d5fff', // Roxo vibrante, inspirado em nebulosas
+    secondary: '#ff6bcb', // Rosa cósmico, parecido com auroras espaciais
+    accent: '#00e5ff', // Azul neon, trazendo um brilho futurista
+    cardBg: '#161629', // Fundo dos cards bem escuro, mas com leve brilho
+    cardBorder: 'rgba(125, 95, 255, 0.5)', // Contorno roxo vibrante
+    glassBg: 'rgba(26, 26, 50, 0.5)', // Fundo de vidro translúcido
+    gradientStart: '#7d5fff', // Gradiente roxo espacial
+    gradientEnd: '#00e5ff', // Azul neon, como um brilho sideral
+    glowAccent: 'rgba(255, 107, 203, 0.5)', // Brilho rosa nebuloso
+    glowPrimary: 'rgba(0, 229, 255, 0.4)', // Brilho azul neon
+    navBg: 'rgba(5, 5, 25, 0.8)', // Fundo da navegação quase preto, para imersão
   },
 };
+
 
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
