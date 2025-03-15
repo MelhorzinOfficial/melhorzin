@@ -5,7 +5,6 @@ import { useLanguage } from "../contexts/LanguageContext";
 import type React from "react";
 
 
-
 export const AboutMe : React.FC = () => {
 
   const itemVariants = {

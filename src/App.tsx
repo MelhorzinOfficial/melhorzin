@@ -177,8 +177,7 @@ function AppContent() {
         </motion.a>
             </motion.div>
 
-      <div data-scroll-container>
-      <section data-scroll-section>
+
         <div
           className="min-h-screen relative"
           style={{
@@ -227,15 +226,6 @@ function AppContent() {
             </motion.main>
           </AnimatedMain>
         </div>
-      </section>
-      </div>
-    </div>
-    <div>
-      <footer className="container mx-auto px-4 py-8 text-center">
-        <p>
-          © {new Date().getFullYear()} Vitor Lana. Todos os direitos reservados.
-        </p>
-      </footer>
     </div>
     </>
   );

@@ -9,7 +9,7 @@ interface AnimatedMainProps {
 export const AnimatedMain = React.memo(({ variants, children }: AnimatedMainProps) => {
   return (
     <motion.main
-      className="container abc mx-auto px-4 py-16 space-y-24 relative"
+      className="container mx-auto px-4 py-16 space-y-24 relative"
       initial={false}
       animate="visible"
       variants={variants}
