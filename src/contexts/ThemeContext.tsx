@@ -6,20 +6,14 @@ interface ThemeColors {
   primary: string;
   secondary: string;
   accent: string;
-  cardBackground: string;
+  cardBg: string;
   cardBorder: string;
-  buttonBackground: string;
-  buttonText: string;
-  navBackground: string;
-  navText: string;
-  footerBackground: string;
-  footerText: string;
-  sectionBackground: string;
-  glowAccent: string;
-  glowPrimary: string;
   glassBg: string;
   gradientStart: string;
   gradientEnd: string;
+  glowAccent: string;
+  glowPrimary: string;
+  navBg: string;
 }
 
 type Theme = 'light' | 'dark';
@@ -37,41 +31,29 @@ const themes = {
     primary: '#4361ee',
     secondary: '#3f37c9',
     accent: '#00e0f3',
-    cardBackground: 'rgba(255, 255, 255, 0.8)',
+    cardBg: 'rgba(255, 255, 255, 0.8)',
     cardBorder: 'rgba(148, 163, 184, 0.2)',
-    buttonBackground: '#4361ee',
-    buttonText: '#ffffff',
-    navBackground: 'rgba(255, 255, 255, 0.85)',
-    navText: '#1a1b4b',
-    footerBackground: '#e0e7ff',
-    footerText: '#1a1b4b',
-    sectionBackground: '#f0f4ff',
-    glowAccent: 'rgba(0, 224, 243, 0.6)',
-    glowPrimary: 'rgba(67, 97, 238, 0.6)',
     glassBg: 'rgba(255, 255, 255, 0.25)',
     gradientStart: '#4361ee',
-    gradientEnd: '#00e0f3'
+    gradientEnd: '#00e0f3',
+    glowAccent: 'rgba(0, 224, 243, 0.6)',
+    glowPrimary: 'rgba(67, 97, 238, 0.6)',
+    navBg: 'rgba(255, 255, 255, 0.85)',
   },
   dark: {
-    background: '#0f172a',
+    background: '#0a0f1f', 
     text: '#e2e8f0',
     primary: '#4f46e5',
-    secondary: '#2563eb',
-    accent: '#06b6d4',
-    cardBackground: 'rgba(15, 23, 42, 0.7)',
+    secondary: '#06b6d4',
+    accent: '#0ea5e9',
+    cardBg: 'rgba(15, 23, 42, 0.7)',
     cardBorder: 'rgba(71, 85, 105, 0.3)',
-    buttonBackground: '#4f46e5',
-    buttonText: '#ffffff',
-    navBackground: 'rgba(15, 23, 42, 0.85)',
-    navText: '#e2e8f0',
-    footerBackground: '#0f172a',
-    footerText: '#e2e8f0',
-    sectionBackground: '#0f172a',
-    glowAccent: 'rgba(6, 182, 212, 0.6)',
-    glowPrimary: 'rgba(79, 70, 229, 0.6)',
     glassBg: 'rgba(15, 23, 42, 0.5)',
     gradientStart: '#4f46e5',
-    gradientEnd: '#06b6d4'
+    gradientEnd: '#06b6d4',
+    glowAccent: 'rgba(14, 165, 233, 0.5)',
+    glowPrimary: 'rgba(79, 70, 229, 0.6)',
+    navBg: 'rgba(15, 23, 42, 0.7)',
   },
 };
 

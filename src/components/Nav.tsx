@@ -3,7 +3,11 @@ import { motion } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
 import { useState, useEffect } from 'react';
 
-export function Nav() {
+interface NavProps {
+  activeSection: string;
+}
+
+export function Nav({ activeSection }: NavProps) {
   const { t } = useLanguage();
   const { themeColors } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -54,9 +58,21 @@ export function Nav() {
               <a 
                 href={`#${link.id}`} 
                 className="relative py-2 px-1 block transition-colors duration-300"
-                style={{ color: themeColors.text }}
+                style={{ 
+                  color: activeSection === link.id ? themeColors.accent : themeColors.text
+                }}
               >
                 {link.label}
+                {activeSection === link.id && (
+                  <motion.span 
+                    className="absolute bottom-0 left-0 h-0.5 w-full"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    style={{ 
+                      background: `linear-gradient(90deg, ${themeColors.gradientStart}, ${themeColors.gradientEnd})`,
+                      boxShadow: `0 0 8px ${themeColors.glowAccent}`
+                    }}
+                  />
+                )}
                 <motion.span 
                   className="absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-300"
                   initial={{ width: 0 }}
