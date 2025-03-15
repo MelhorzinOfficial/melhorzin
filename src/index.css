@@ -38,3 +38,9 @@ body {
   margin-right: auto;
   max-width: 80rem;
 }
+
+/* Exemplo: adicione em seu CSS global */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}

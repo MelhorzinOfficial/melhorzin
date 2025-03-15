@@ -12,6 +12,7 @@ import { Roadmap } from './components/Roadmap';
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
 import type { Container, Engine } from 'tsparticles-engine';
+import { ReceiveEmail } from './components/SendEmail';
 
 // Animation variants
 const containerVariants = {
@@ -44,16 +45,16 @@ const AppContent = () => {
   const particlesInit = async (engine: Engine) => {
     await loadFull(engine);
   };
-  
+
   const handleParticlesLoaded = (container: Container | undefined) => {
     if (!container) return;
-  
+
     container.canvas.element?.addEventListener('click', () => {
       setTimeout(() => {
         const count = container.particles.count;
-       
+
         const removeCount = Math.floor(count * 0.3);
-  
+
         for (let i = 0; i < removeCount; i++) {
           const randomIndex = Math.floor(Math.random() * container.particles.count);
           container.particles.removeAt(randomIndex);
@@ -61,7 +62,7 @@ const AppContent = () => {
       }, 15000);
     });
   };
-  
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -101,103 +102,103 @@ const AppContent = () => {
             background: `linear-gradient(135deg, ${themeColors.background}, ${themeColors.primary}33)`
           }}
         >
-           <Header />
-           <Particles
-  id="tsparticles"
-  init={particlesInit}
-  options={{
-    fullScreen: false,
-    background: {
-      color: { value: "transparent" },
-    },
-    fpsLimit: 45, // Limite para reduzir a carga da renderização
-    particles: {
-      color: {
-        value: theme === "dark" 
-          ? ["#00eaff"] 
-          : ["#004466"],
-      },
-      links: {
-        enable: true,
-        distance: 120,
-        color: theme === "dark" ? "#ffffff" : "#000000",
-        opacity: 0.1,
-        width: 0.8,
-        shadow: {
-          enable: false,
-        },
-      },
-      move: {
-        enable: true,
-        speed: 0.5, // Movimento mais suave e lento
-        direction: "none",
-        outModes: { default: "out" },
-        random: false,
-      },
-      number: {
-        density: { enable: true, area: 800 },
-        value: 30, // Menos partículas para melhor performance
-      },
-      opacity: {
-        value: 0.5,
-        random: false,
-        animation: {
-          enable: false, // Desativa a animação de opacidade
-        },
-      },
-      shape: {
-        type: "circle", // Use apenas um tipo para reduzir o processamento
-      },
-      size: {
-        value: { min: 1, max: 3 },
-        random: true,
-        animation: {
-          enable: false, // Desativa animação de tamanho
-        },
-      },
-      twinkle: {
-        particles: { enable: false }, // Desabilita o efeito twinkle
-        links: { enable: false },
-      },
-      roll: {
-        enable: false, // Desabilita o roll para reduzir processamento
-      },
-      rotate: {
-        enable: false, // Desabilita a rotação
-      },
-    },
-    interactivity: {
-      detectsOn: "canvas",
-      events: {
-        onHover: { enable: false }, // Mantém as partículas estáticas ao passar o mouse
-        onClick: { enable: true, mode: "push" },
-        resize: true,
-      },
-      modes: {
-        push: { quantity: 3 },
-      },
-    },
-    detectRetina: true,
-  }}
-  style={{
-    width: "100%",
-    height: "100%",
-    position: "absolute",
-    top: 0,
-    left: 0,
-    zIndex: 0,
-  }}
-/>
+          <Header />
+          <Particles
+            id="tsparticles"
+            init={particlesInit}
+            options={{
+              fullScreen: false,
+              background: {
+                color: { value: "transparent" },
+              },
+              fpsLimit: 45, // Limite para reduzir a carga da renderização
+              particles: {
+                color: {
+                  value: theme === "dark"
+                    ? ["#00eaff"]
+                    : ["#004466"],
+                },
+                links: {
+                  enable: true,
+                  distance: 120,
+                  color: theme === "dark" ? "#ffffff" : "#000000",
+                  opacity: 0.1,
+                  width: 0.8,
+                  shadow: {
+                    enable: false,
+                  },
+                },
+                move: {
+                  enable: true,
+                  speed: 0.5, // Movimento mais suave e lento
+                  direction: "none",
+                  outModes: { default: "out" },
+                  random: false,
+                },
+                number: {
+                  density: { enable: true, area: 800 },
+                  value: 30, // Menos partículas para melhor performance
+                },
+                opacity: {
+                  value: 0.5,
+                  random: false,
+                  animation: {
+                    enable: false, // Desativa a animação de opacidade
+                  },
+                },
+                shape: {
+                  type: "circle", // Use apenas um tipo para reduzir o processamento
+                },
+                size: {
+                  value: { min: 1, max: 3 },
+                  random: true,
+                  animation: {
+                    enable: false, // Desativa animação de tamanho
+                  },
+                },
+                twinkle: {
+                  particles: { enable: false }, // Desabilita o efeito twinkle
+                  links: { enable: false },
+                },
+                roll: {
+                  enable: false, // Desabilita o roll para reduzir processamento
+                },
+                rotate: {
+                  enable: false, // Desabilita a rotação
+                },
+              },
+              interactivity: {
+                detectsOn: "canvas",
+                events: {
+                  onHover: { enable: false }, // Mantém as partículas estáticas ao passar o mouse
+                  onClick: { enable: true, mode: "push" },
+                  resize: true,
+                },
+                modes: {
+                  push: { quantity: 3 },
+                },
+              },
+              detectRetina: true,
+            }}
+            style={{
+              width: "100%",
+              height: "100%",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              zIndex: 0,
+            }}
+          />
 
-<motion.main
-  className="container mx-auto px-4 py-16 space-y-24 relative"
-  initial="hidden"
-  animate="visible"
-  variants={containerVariants}
->
-</motion.main>
+          <motion.main
+            className="container mx-auto px-4 py-16 space-y-24 relative"
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+          >
+          </motion.main>
           <Settings />
-         
+
 
           {/* Futuristic grid background for the main content */}
           <motion.main
@@ -567,25 +568,36 @@ const AppContent = () => {
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
                       </svg>
                     </motion.a>
-                    <motion.a
-                      href="mailto:vitorlana45@gmail.com"
-                      className="relative p-4 rounded-full flex items-center justify-center"
-                      whileHover={{
-                        scale: 1.1,
-                        boxShadow: `0 0 15px ${themeColors.glowAccent}`
-                      }}
-                      style={{
-                        backgroundColor: themeColors.glassBg,
-                        backdropFilter: 'blur(10px)',
-                        border: `1px solid ${themeColors.cardBorder}`,
-                        color: themeColors.text
-                      }}
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                    </motion.a>
                   </div>
+
+                  <div className="space-y-8">
+                    <div className="flex justify-center space-x-8"></div>
+                    <div className="flex items-center justify-center my-8">
+                      <hr
+                        className="w-1/4 border-t border-gray-300"
+                        style={{ borderColor: themeColors.cardBorder }}
+                      />
+                      <span
+                        className="mx-4 text-gray-500 text-sm uppercase tracking-wide"
+                        style={{ color: themeColors.text }}
+                      >
+                        {t('contact.divider')}
+                      </span>
+                      <hr
+                        className="w-1/4 border-t border-gray-300"
+                        style={{ borderColor: themeColors.cardBorder }}
+                      />
+                    </div>
+                    <div className="flex justify-center space-x-4">
+                    </div>
+                  </div>
+
+                  <div>
+                    <ReceiveEmail onSubmit={(email) => console.log(email)}>
+
+                    </ReceiveEmail>
+                  </div>
+
                 </div>
               </Section>
             </motion.div>
