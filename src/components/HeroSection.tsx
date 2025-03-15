@@ -1,150 +1,55 @@
-import { useCallback, useEffect, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useTheme } from '../contexts/ThemeContext';
-import { loadFull } from 'tsparticles';
-import Particles from 'react-tsparticles';
-import type { Container, Engine } from 'tsparticles-engine';
 import { motion } from 'framer-motion';
 
 export function Header() {
   const { t } = useLanguage();
-  const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const particlesInit = useCallback(async (engine: Engine) => {
-    await loadFull(engine);
-  }, []);
-
-  const particlesLoaded = useCallback(async (_container: Container | undefined) => {
-    // console.log(container);
-  }, []);
-
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 10
-      }
-    }
-  };
-
+  const { theme, themeColors } = useTheme(); // adicione themeColors
   return (
     <header className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {mounted && (
-        <Particles
-          id="tsparticles"
-          init={particlesInit}
-          loaded={particlesLoaded}
-          options={{
-            fullScreen: {
-              enable: false,
-            },
-            background: {
-              color: {
-                value: 'transparent',
-              },
-            },
-            fpsLimit: 120,
-            particles: {
-              color: {
-                value: theme === 'dark' ? '#ef4444' : '#dc2626',
-              },
-              links: {
-                color: theme === 'dark' ? '#ef4444' : '#dc2626',
-                distance: 150,
-                enable: true,
-                opacity: 0.3,
-                width: 1,
-              },
-              move: {
-                direction: 'none',
-                enable: true,
-                outModes: {
-                  default: 'bounce',
-                },
-                random: true,
-                speed: 1,
-                straight: false,
-              },
-              number: {
-                density: {
-                  enable: true,
-                  area: 800,
-                },
-                value: 80,
-              },
-              opacity: {
-                value: 0.3,
-              },
-              shape: {
-                type: 'circle',
-              },
-              size: {
-                value: { min: 1, max: 3 },
-              },
-            },
-            detectRetina: true,
-          }}
-          className="absolute inset-0 w-full h-full"
-        />
-      )}
-
-      <div className="absolute inset-0 bg-gradient-to-br from-red-950 to-red-900 dark:from-red-950 dark:to-red-900 opacity-90"></div>
+    
+      {/* Alterando o overlay para utilizar o gradiente do theme */}
+      <div
+        className="absolute inset-0 opacity-90"
+        style={{
+          background: theme === 'dark'
+            ? 'linear-gradient(to bottom right, ' + themeColors.primary + ', ' + '#000' + ')'
+            : 'linear-gradient(to bottom right, ' + themeColors.primary + ', ' + themeColors.secondary + ')'
+        }}
+      ></div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div 
+        <motion.div
           className="flex flex-col md:flex-row items-center justify-between gap-12"
           initial="hidden"
           animate="visible"
-          variants={containerVariants}
+        
         >
           <div className="w-full md:w-1/2 text-left">
-            <motion.h1 
-              className="text-4xl md:text-6xl font-bold text-white mb-4"
-              variants={itemVariants}
+            <motion.h1
+              className="text-4xl md:text-6xl font-bold mb-4"
+              style={{ color: themeColors.text }}
+            
             >
-              <span className="text-red-400 dark:text-red-300">Hi.</span> {t('header.title')}
+              <span style={{ color: themeColors.accent }}>Hi.</span> {t('header.title')}
             </motion.h1>
-            <motion.h2 
-              className="text-2xl md:text-3xl font-semibold text-red-200 dark:text-red-200 mb-6"
-              variants={itemVariants}
+            <motion.h2
+              className="text-2xl md:text-3xl font-semibold mb-6"
+              style={{ color: themeColors.text }}
+           
             >
               {t('header.subtitle')}
             </motion.h2>
             <motion.p 
               className="text-lg text-red-100/90 dark:text-red-100/80 mb-8 max-w-lg"
-              variants={itemVariants}
             >
               {t('header.description')}
             </motion.p>
-            <motion.div 
-              className="flex gap-4"
-              variants={itemVariants}
-            >
+            <motion.div className="flex gap-4" >
               <motion.a
                 href="#projetos"
                 className="group relative inline-flex items-center gap-2"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05 }} 
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
                 <div className="absolute -inset-2 bg-gradient-to-r from-red-600 to-red-400 dark:from-red-700 dark:to-red-500 rounded-lg blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
@@ -156,6 +61,7 @@ export function Header() {
                 href="#contato"
                 className="px-6 py-3 rounded-lg text-red-300 hover:text-red-200 transition-colors duration-300"
                 whileHover={{ scale: 1.05 }}
+                style={{ backgroundColor: themeColors.buttonBackground, color: themeColors.buttonText }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
                 {t('header.contact')}
@@ -163,11 +69,8 @@ export function Header() {
             </motion.div>
           </div>
 
-          <motion.div 
-            className="w-full md:w-1/2 flex justify-center md:justify-end"
-            variants={itemVariants}
-          >
-            <motion.div 
+          <motion.div className="w-full md:w-1/2 flex justify-center md:justify-end" >
+            <motion.div
               className="relative group"
               whileHover={{ scale: 1.05, rotate: 5 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
