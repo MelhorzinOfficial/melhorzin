@@ -13,13 +13,16 @@
     "@tsparticles/engine": "^3.8.1",
     "framer-motion": "^12.5.0",
     "in-my-head": "file:",
+    "locomotive-scroll": "^4.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-locomotive-scroll": "^0.2.2",
     "react-tsparticles": "^2.12.2",
     "tsparticles": "^2.12.0"
   },
   "devDependencies": {
     "@eslint/js": "^8.56.0",
+    "@types/locomotive-scroll": "^4.1.4",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@vitejs/plugin-react": "^4.2.1",
