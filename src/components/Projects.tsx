@@ -2,23 +2,10 @@ import { motion } from "framer-motion"
 import { Section } from "./Section"
 import { ProjectCard } from "./ProjectCard"
 import { useLanguage } from "../contexts/LanguageContext";
-import { useTheme } from "../contexts/ThemeContext";
 
 
 
 export const Projects: React.FC = () => {
-
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3
-      }
-    }
-  };
-
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -28,7 +15,6 @@ export const Projects: React.FC = () => {
     }
   };
 
-  const { themeColors } = useTheme();
   const { t } = useLanguage();
 
   return (
@@ -51,7 +37,7 @@ export const Projects: React.FC = () => {
               title={'projectReservas.title'}
               description={'projectReservas.description'}
               image="../public/cap-reservas-page.png"
-              technologies={['React', 'TypeScript', 'Tailwind CSS']}
+              technologies={['Angular', 'TypeScript', 'CSS']}
               link="https://github.com/vitorlana45/Reservas.com"
             />
           </div>
@@ -68,8 +54,8 @@ export const Projects: React.FC = () => {
               title={'renitAlert'}
               description={'renitAlertDesc'}
               image="../public/chatbot-project.jpg"
-              technologies={['Python', 'TensorFlow', 'React']}
-              link="https://github.com/vitorlana45/ai-chatbot"
+              technologies={['Java', 'Springboot', 'Postgres']}
+              link=""
             />
           </div>
         </div>

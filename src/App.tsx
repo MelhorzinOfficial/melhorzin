@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react';
 import { HeroSection } from './components/HeroSection';
-import { Section } from './components/Section';
-import { ProjectCard } from './components/ProjectCard';
 import { Settings } from './components/Settings';
 import { Nav } from './components/Nav';
 import { Roadmap } from './components/Roadmap';
 import Skills from './components/Skills';
 import { ParticlesR } from './components/Particles';
 import { AnimatedMain } from './components/AnimatedMain';
-import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
+import { LanguageProvider } from './contexts/LanguageContext';
 import { ThemeProvider, useTheme } from './contexts/ThemeContext';
 import { motion } from 'framer-motion';
 import { AboutMe } from './components/AboutMe';
@@ -35,7 +33,6 @@ const itemVariants = {
 
 function AppContent() {
   const { themeColors } = useTheme();
-  const { t } = useLanguage();
   const [currentSection, setCurrentSection] = useState("inicio");
 
   useEffect(() => {
@@ -110,7 +107,7 @@ function AppContent() {
             opacity: 0.3
           }}
         ></div>
-        
+
         <AnimatedMain variants={containerVariants}>
           <motion.main
             className="container abc mx-auto px-4 py-16 space-y-24 relative"
