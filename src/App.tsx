@@ -9,6 +9,9 @@ import { Nav } from './components/Nav';
 import { ThemeProvider, useTheme } from './contexts/ThemeContext';
 import { SmoothScrollProvider } from './components/SmoothScroll';
 import { Roadmap } from './components/Roadmap';
+import Particles from 'react-tsparticles';
+import { loadFull } from 'tsparticles';
+import type { Container, Engine } from 'tsparticles-engine';
 
 // Animation variants
 const containerVariants = {
@@ -34,19 +37,41 @@ const itemVariants = {
 
 // Main app content
 const AppContent = () => {
-  const { themeColors } = useTheme();
+  const { themeColors, theme } = useTheme();
   const { t } = useLanguage();
   const [currentSection, setCurrentSection] = useState('');
+
+  const particlesInit = async (engine: Engine) => {
+    await loadFull(engine);
+  };
+  
+  const handleParticlesLoaded = (container: Container | undefined) => {
+    if (!container) return;
+  
+    container.canvas.element?.addEventListener('click', () => {
+      setTimeout(() => {
+        const count = container.particles.count;
+       
+        const removeCount = Math.floor(count * 0.3);
+  
+        for (let i = 0; i < removeCount; i++) {
+          const randomIndex = Math.floor(Math.random() * container.particles.count);
+          container.particles.removeAt(randomIndex);
+        }
+      }, 15000);
+    });
+  };
+  
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      
+
       // Se estiver no início da página (Hero), define a seção ativa como 'hero'
       if (scrollPosition < 300) {
         setCurrentSection('hero');
         return;
       }
-      
+
       const sections = document.querySelectorAll('section[id]');
       let current = '';
       sections.forEach((section) => {
@@ -59,25 +84,120 @@ const AppContent = () => {
       });
       setCurrentSection(current);
     };
-  
+
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Verifica a seção inicial
-  
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  
+
   return (
     <div style={{ backgroundColor: themeColors.background, color: themeColors.text }}>
       <SmoothScrollProvider>
         <Nav activeSection={currentSection} />
         <div
-          className="min-h-screen"
+          className="min-h-screen relative"
           style={{
             background: `linear-gradient(135deg, ${themeColors.background}, ${themeColors.primary}33)`
           }}
         >
+           <Header />
+           <Particles
+  id="tsparticles"
+  init={particlesInit}
+  options={{
+    fullScreen: false,
+    background: {
+      color: { value: "transparent" },
+    },
+    fpsLimit: 45, // Limite para reduzir a carga da renderização
+    particles: {
+      color: {
+        value: theme === "dark" 
+          ? ["#00eaff"] 
+          : ["#004466"],
+      },
+      links: {
+        enable: true,
+        distance: 120,
+        color: theme === "dark" ? "#ffffff" : "#000000",
+        opacity: 0.1,
+        width: 0.8,
+        shadow: {
+          enable: false,
+        },
+      },
+      move: {
+        enable: true,
+        speed: 0.5, // Movimento mais suave e lento
+        direction: "none",
+        outModes: { default: "out" },
+        random: false,
+      },
+      number: {
+        density: { enable: true, area: 800 },
+        value: 30, // Menos partículas para melhor performance
+      },
+      opacity: {
+        value: 0.5,
+        random: false,
+        animation: {
+          enable: false, // Desativa a animação de opacidade
+        },
+      },
+      shape: {
+        type: "circle", // Use apenas um tipo para reduzir o processamento
+      },
+      size: {
+        value: { min: 1, max: 3 },
+        random: true,
+        animation: {
+          enable: false, // Desativa animação de tamanho
+        },
+      },
+      twinkle: {
+        particles: { enable: false }, // Desabilita o efeito twinkle
+        links: { enable: false },
+      },
+      roll: {
+        enable: false, // Desabilita o roll para reduzir processamento
+      },
+      rotate: {
+        enable: false, // Desabilita a rotação
+      },
+    },
+    interactivity: {
+      detectsOn: "canvas",
+      events: {
+        onHover: { enable: false }, // Mantém as partículas estáticas ao passar o mouse
+        onClick: { enable: true, mode: "push" },
+        resize: true,
+      },
+      modes: {
+        push: { quantity: 3 },
+      },
+    },
+    detectRetina: true,
+  }}
+  style={{
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    zIndex: 0,
+  }}
+/>
+
+<motion.main
+  className="container mx-auto px-4 py-16 space-y-24 relative"
+  initial="hidden"
+  animate="visible"
+  variants={containerVariants}
+>
+</motion.main>
           <Settings />
-          <Header />
+         
 
           {/* Futuristic grid background for the main content */}
           <motion.main
@@ -134,9 +254,9 @@ const AppContent = () => {
                           <span
                             className="inline-block w-8 h-8 mr-2 rounded-full flex items-center justify-center"
                             style={{
-                               backgroundColor: `${themeColors.primary}33`,
-                               border: `1px solid ${themeColors.primary}66`
-                             }}
+                              backgroundColor: `${themeColors.primary}33`,
+                              border: `1px solid ${themeColors.primary}66`
+                            }}
                           >
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                               <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -185,9 +305,9 @@ const AppContent = () => {
                           <span
                             className="inline-block w-8 h-8 mr-2 rounded-full flex items-center justify-center"
                             style={{
-                               backgroundColor: `${themeColors.primary}33`,
-                               border: `1px solid ${themeColors.primary}66`
-                             }}
+                              backgroundColor: `${themeColors.primary}33`,
+                              border: `1px solid ${themeColors.primary}66`
+                            }}
                           >
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                               <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
@@ -247,21 +367,21 @@ const AppContent = () => {
                 </div>
               </Section>
             </motion.div>
-            
+
             {/* Projects Section */}
             <motion.div variants={itemVariants} className="relative z-10">
               <Section id="projetos" title={t('projects.title')}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <ProjectCard 
-                    title={('project1.title') }
-                    description={('project1.description')}
+                  <ProjectCard
+                    title={'project1.title'}
+                    description={'project1.description'}
                     image="/project1.jpg"
                     technologies={['Java', 'Spring Boot', 'JWT', 'Swagger']}
                     link="https://github.com/vitorlana45/api-project"
                   />
-                  <ProjectCard 
-                    title={('project2.title')}
-                    description={('project2.description')}
+                  <ProjectCard
+                    title={'project2.title'}
+                    description={'project2.description'}
                     image="/project2.jpg"
                     technologies={['React', 'TypeScript', 'Tailwind CSS']}
                     link="https://github.com/vitorlana45/portfolio"
@@ -269,7 +389,7 @@ const AppContent = () => {
                 </div>
               </Section>
             </motion.div>
-            
+
             {/* Skills Section */}
             <motion.div variants={itemVariants} className="relative z-10">
               <Section id="habilidades" title={t('skills.title')}>
@@ -300,7 +420,7 @@ const AppContent = () => {
                         </svg>
                       </div>
                       <h4 className="font-semibold">Back End</h4>
-                      <p className="mt-2 text-sm opacity-80">Java, Spring Boot, JPA, RESTful APIs</p>
+                      <p className="mt-2 text-sm opacity-80">Java, Spring Boot, JPA, NodeJs, N8N, RESTful APIs</p>
                     </motion.div>
 
                     {/* Front End */}
@@ -328,7 +448,7 @@ const AppContent = () => {
                         </svg>
                       </div>
                       <h4 className="font-semibold">Front End</h4>
-                      <p className="mt-2 text-sm opacity-80">React, TypeScript, Tailwind CSS</p>
+                      <p className="mt-2 text-sm opacity-80">React, TypeScript, Tailwind CSS, WEWEB</p>
                     </motion.div>
 
                     {/* Database */}
@@ -356,7 +476,7 @@ const AppContent = () => {
                         </svg>
                       </div>
                       <h4 className="font-semibold">Database</h4>
-                      <p className="mt-2 text-sm opacity-80">MySQL, PostgreSQL, MongoDB</p>
+                      <p className="mt-2 text-sm opacity-80">MySQL, PostgreSQL, MongoDB, Supabase</p>
                     </motion.div>
 
                     {/* DevOps */}
