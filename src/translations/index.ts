@@ -43,7 +43,18 @@ export const translations = {
     'renitAlert': 'RenitAlert - Monitoramento de Rinite',
     'renitAlertDesc': 'Sistema inteligente que alerta sobre condições meteorológicas que podem desencadear sintomas de rinite, utilizando dados de temperatura e umidade.',
     'statusProjectCompleted': 'Concluído',
-    'statusProjectInProgress': 'Em Andamento'
+    'statusProjectInProgress': 'Em Andamento',
+    'sendEmail': 'Enviar Email',
+    'email': 'Email',
+    'subject': 'Assunto',
+    'message': 'Mensagem',
+    'emailError': 'Insira um email válido.',
+    'fieldsError': 'Preencha todos os campos.',
+    'emailSent': 'Email enviado com sucesso!',
+    'emailFailed': 'Falha ao enviar email. Tente novamente mais tarde.',
+    'modalButtonSend': 'Enviar',
+    'modalButtonClose': 'Fechar',
+    'yourEmail': 'Seu Email',
   },
   en: {
     'nav.home': 'Home',
@@ -89,7 +100,18 @@ export const translations = {
     'renitAlert': 'RenitAlert - Rhinitis Monitoring',
     'renitAlertDesc': 'Intelligent system that alerts users about weather conditions that may trigger rhinitis symptoms, using temperature and humidity data.',
     'statusProjectCompleted': 'Completed',
-    'statusProjectInProgress': 'In Progress'
+    'statusProjectInProgress': 'In Progress',
+    'email': 'Email',
+    'subject': 'Subject',
+    'message': 'Message',
+    'emailError': 'Enter a valid email.',
+    'fieldsError': 'Fill in all fields.',
+    'emailSent': 'Email sent successfully!',
+    'emailFailed': 'Failed to send email. Try again later.',
+    'modalButtonSend': 'Send',
+    'modalButtonClose': 'Close',
+    'yourEmail': 'Your Email',
+
   },
   es: {
     'nav.home': 'Inicio',
@@ -135,6 +157,16 @@ export const translations = {
     'renitAlert': 'RenitAlert - Monitoreo de Rinitis',
     'renitAlertDesc': 'Sistema inteligente que alerta sobre condiciones meteorológicas que pueden desencadenar síntomas de rinitis, utilizando datos de temperatura y humedad.',
     'statusProjectCompleted': 'Completado',
-    'statusProjectInProgress': 'En Progreso'
+    'statusProjectInProgress': 'En Progreso',
+    'email': 'Email',
+    'yourEmail': 'Tu Email',
+    'subject': 'Asunto',
+    'message': 'Mensaje',
+    'emailError': 'Introduce un email válido.',
+    'fieldsError': 'Rellena todos los campos.',
+    'emailSent': '¡Email enviado con éxito!',
+    'emailFailed': 'Error al enviar el email. Inténtalo de nuevo más tarde.',
+    'modalButtonSend': 'Enviar',
+    'modalButtonClose': 'Cerrar',
   }
 };

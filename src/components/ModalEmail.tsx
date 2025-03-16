@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
 import { AiOutlineClose } from 'react-icons/ai';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface EmailModalProps {
   isOpen: boolean;
@@ -14,6 +15,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose }) => {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+   const { t } = useLanguage();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -62,7 +64,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose }) => {
             className="text-xl font-bold mb-4"
             style={{ color: themeColors.primary }}
           >
-            Enviar Email
+            {t('email')}
           </h2>
           {error && (
             <p className="mb-3 text-sm" style={{ color: 'red' }}>
@@ -75,7 +77,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose }) => {
                 className="block text-sm font-medium mb-1"
                 style={{ color: themeColors.secondary }}
               >
-                Seu Email
+                {t('yourEmail')}
               </label>
               <input
                 type="email"
@@ -95,7 +97,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose }) => {
                 className="block text-sm font-medium mb-1"
                 style={{ color: themeColors.secondary }}
               >
-                Assunto
+                {t('subject')}
               </label>
               <input
                 type="text"
@@ -115,7 +117,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose }) => {
                 className="block text-sm font-medium mb-1"
                 style={{ color: themeColors.secondary }}
               >
-                Mensagem
+                {t('message')}
               </label>
               <textarea
                 required
@@ -150,7 +152,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose }) => {
                     themeColors.buttonBackground)
                 }
               >
-                Cancelar
+                {t('modalButtonClose')}
               </button>
               <button
                 type="submit"
@@ -168,7 +170,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose }) => {
                     themeColors.sendButtonBackground)
                 }
               >
-                Enviar
+                {t('modalButtonSend')}
               </button>
             </div>
           </form>
