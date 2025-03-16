@@ -25,23 +25,13 @@ export function Section({ id, title, children }: SectionProps) {
         border: `1px solid ${themeColors.cardBorder}`
       }}
     >
-      {/* Background grid pattern */}
-      <div 
-        className="absolute inset-0 z-0 pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
-          `,
-          backgroundSize: '20px 20px'
-        }}
-      ></div>
+
       
       {/* Glow accent in corner */}
       <div 
         className="absolute -top-10 -right-10 w-40 h-40 rounded-full opacity-20"
         style={{
-          background: `radial-gradient(circle, ${themeColors.glowAccent} 0%, transparent 70%)`,
+          background: `radial-gradient(circle, ${themeColors.glowPrimary} 0%, transparent 20%)`,
           filter: 'blur(20px)'
         }}
       ></div>

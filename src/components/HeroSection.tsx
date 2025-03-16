@@ -54,7 +54,6 @@ export function HeroSection({ id }: HeroSectionProps) {
             </motion.h2>
             <motion.p
               className="text-lg mb-8 max-w-lg"
-              style={{ color: theme === 'dark' ? 'rgba(226, 232, 240, 0.8)' : 'rgba(26, 27, 75, 0.8)' }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -79,15 +78,15 @@ export function HeroSection({ id }: HeroSectionProps) {
                 <div
                   className="absolute -inset-2 rounded-lg blur opacity-0 group-hover:opacity-100 transition duration-500"
                   style={{
-                    background: `linear-gradient(135deg, ${themeColors.gradientStart}, ${themeColors.gradientEnd})`
+                    background: `linear-gradient(1deg, ${themeColors.gradientEnd}, ${themeColors.gradientStart})`
                   }}
                 ></div>
                 <div
                   className="relative px-6 py-3 rounded-lg text-white transition-colors duration-300 ring-1 ring-opacity-30"
                   style={{
-                    backgroundColor: themeColors.glassBg,
+                    backgroundColor: themeColors.buttonResume,
                     backdropFilter: 'blur(10px)',
-                    borderColor: themeColors.accent
+                    borderColor: themeColors.border
                   }}
                 >
                   {t('hero.resume')}
