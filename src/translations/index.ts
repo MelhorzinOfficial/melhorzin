@@ -55,6 +55,37 @@ export const translations = {
     'modalButtonSend': 'Enviar',
     'modalButtonClose': 'Fechar',
     'yourEmail': 'Seu Email',
+
+    // Carreira
+    
+    'career.learning_growth': 'Aprendizado e Crescimento',
+    'career.currently': 'Atualmente',
+    'career.education.items': [
+      { period: '2022 - 2023', description: 'Estudante de forma autodidata e em Bootcamps buscando conteúdos.' },
+      { period: '2024 - 2025', description: 'Bootcamp DevSuperior - Java Spring Expert.' },
+      { period: '2024 - 2026', description: 'Análise e Desenvolvimento de Sistemas - Faculdade Descomplica.' },
+    ],
+    'career.experience.items': [
+      {
+        period: '2022 - 2023',
+        description: 'Desenvolvedor Back-End Jr. APIs RESTful com Java e Spring Boot. Implementação de autenticação JWT.',
+      },
+      {
+        period: '2023 - Presente',
+        description: 'Desenvolvedor Full Stack. Trabalhando com React, TypeScript e Spring Boot, criando interfaces responsivas.',
+      },
+    ],
+    'career.learning_growth.items': [
+      { description: 'Microservices e Arquitetura Orientada a Eventos: Aprofundamento em sistemas distribuídos com Spring Cloud, Kafka, RabbitMQ.' },
+      { description: 'React Avançado: Aprofundamento em React, Hooks, Context API, Redux, Next.js, Gatsby.' },
+    ],
+    'career.currently.items': [
+      {
+        period: 'JAN-2025 - Presente',
+        description: 'Cargo: Desenvolvedor Full Stack. Trabalhando em um time ágil para criar e melhorar aplicações web e APIs utilizando React, TypeScript, Spring Boot e PostgreSQL. Desenvolvimento de interfaces responsivas e integração com sistemas de pagamento. Responsável por implementar funcionalidades de segurança com JWT e otimizar processos no back-end.',
+        technologies: ['React', 'TypeScript', 'Spring Boot', 'PostgreSQL', 'Docker', 'AWS', 'Jenkins', 'CI/CD'],
+      },
+    ],
   },
   en: {
     'nav.home': 'Home',
@@ -83,8 +114,6 @@ export const translations = {
     'contact.message': 'I\'m always open to new opportunities and collaborations. Get in touch with me through the channels below:',
     'contact.divider': 'Or send a message directly:',
     'career.title': 'My Journey',
-    'career.education': 'Education',
-    'career.experience': 'Experience',
     'career.current': 'Currently',
     'theme.toggle': 'Toggle theme',
     'language.select': 'Select language',
@@ -112,6 +141,38 @@ export const translations = {
     'modalButtonClose': 'Close',
     'yourEmail': 'Your Email',
 
+  // Carreira 
+
+  'career.education': 'Education',
+    'career.experience': 'Experience',
+    'career.learning_growth': 'Learning and Growth',
+    'career.currently': 'Currently',
+    'career.education.items': [
+      { period: '2022 - 2023', description: 'Self-taught and Bootcamp student seeking content.' },
+      { period: '2024 - 2025', description: 'DevSuperior Bootcamp - Java Spring Expert.' },
+      { period: '2024 - 2026', description: 'Systems Analysis and Development - Descomplica University.' },
+    ],
+    'career.experience.items': [
+      {
+        period: '2022 - 2023',
+        description: 'Junior Back-End Developer. RESTful APIs with Java and Spring Boot. JWT authentication implementation.',
+      },
+      {
+        period: '2023 - Present',
+        description: 'Full Stack Developer. Working with React, TypeScript, and Spring Boot, creating responsive interfaces.',
+      },
+    ],
+    'career.learning_growth.items': [
+      { description: 'Microservices and Event-Driven Architecture: In-depth knowledge of distributed systems with Spring Cloud, Kafka, RabbitMQ.' },
+      { description: 'Advanced React: In-depth knowledge of React, Hooks, Context API, Redux, Next.js, Gatsby.' },
+    ],
+    'career.currently.items': [
+      {
+        period: 'JAN-2025 - Present',
+        description: 'Position: Full Stack Developer. Working in an agile team to build and improve web applications and APIs using React, TypeScript, Spring Boot, and PostgreSQL. Developing responsive interfaces and integrating with payment systems. Responsible for implementing security features with JWT and optimizing back-end processes.',
+        technologies: ['React', 'TypeScript', 'Spring Boot', 'PostgreSQL', 'Docker', 'AWS', 'Jenkins', 'CI/CD'],
+      },
+    ],
   },
   es: {
     'nav.home': 'Inicio',
@@ -140,8 +201,7 @@ export const translations = {
     'contact.message': 'Siempre estoy abierto a nuevas oportunidades y colaboraciones. Ponte en contacto conmigo a través de los canales a continuación:',
     'contact.divider': 'O envía un mensaje directamente:',
     'career.title': 'Mi Trayectoria',
-    'career.education': 'Educación',
-    'career.experience': 'Experiencia',
+
     'career.current': 'Actualmente',
     'theme.toggle': 'Cambiar tema',
     'language.select': 'Seleccionar idioma',
@@ -168,5 +228,35 @@ export const translations = {
     'emailFailed': 'Error al enviar el email. Inténtalo de nuevo más tarde.',
     'modalButtonSend': 'Enviar',
     'modalButtonClose': 'Cerrar',
-  }
+      'career.education': 'Educación',
+      'career.experience': 'Experiencia',
+      'career.learning_growth': 'Aprendizaje y Crecimiento',
+      'career.currently': 'Actualmente',
+      'career.education.items': [
+        { period: '2022 - 2023', description: 'Estudiante autodidacta y en Bootcamps buscando contenidos.' },
+        { period: '2024 - 2025', description: 'Bootcamp DevSuperior - Java Spring Expert.' },
+        { period: '2024 - 2026', description: 'Análisis y Desarrollo de Sistemas - Universidad Descomplica.' },
+      ],
+      'career.experience.items': [
+        {
+          period: '2022 - 2023',
+          description: 'Desarrollador Back-End Jr. APIs RESTful con Java y Spring Boot. Implementación de autenticación JWT.',
+        },
+        {
+          period: '2023 - Presente',
+          description: 'Desarrollador Full Stack. Trabajando con React, TypeScript y Spring Boot, creando interfaces responsivas.',
+        },
+      ],
+      'career.learning_growth.items': [
+        { description: 'Microservicios y Arquitectura Orientada a Eventos: Profundización en sistemas distribuidos con Spring Cloud, Kafka, RabbitMQ.' },
+        { description: 'React Avanzado: Profundización en React, Hooks, Context API, Redux, Next.js, Gatsby.' },
+      ],
+      'career.currently.items': [
+        {
+          period: 'ENE-2025 - Presente',
+          description: 'Cargo: Desarrollador Full Stack. Trabajando en un equipo ágil para crear y mejorar aplicaciones web y APIs utilizando React, TypeScript, Spring Boot y PostgreSQL. Desarrollo de interfaces responsivas e integración con sistemas de pago. Responsable de implementar funcionalidades de seguridad con JWT y optimizar procesos en el back-end.',
+          technologies: ['React', 'TypeScript', 'Spring Boot', 'PostgreSQL', 'Docker', 'AWS', 'Jenkins', 'CI/CD'],
+        },
+      ],
+    }
 };

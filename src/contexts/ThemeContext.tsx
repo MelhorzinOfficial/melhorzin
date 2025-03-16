@@ -24,6 +24,7 @@ interface ThemeColors {
   buttonHover: string;
   sendButtonBackground: string;
   sendButtonHover: string;
+  separatorItemRoadMap: string;
 }
 
 type Theme = 'light' | 'dark';
@@ -58,7 +59,8 @@ const themes: Record<Theme, ThemeColors> = {
     closeButton: '#d32f2f', 
     buttonHover: '#3d49d3', 
     sendButtonBackground: '#28a745', 
-    sendButtonHover: '#218838' 
+    sendButtonHover: '#218838',
+    separatorItemRoadMap: 'bg-orange-400'
   },
   dark: {
     background: '#0a0a23',
@@ -84,7 +86,9 @@ const themes: Record<Theme, ThemeColors> = {
     closeButton: '#ff5252', 
     buttonHover: '#5a2be3', 
     sendButtonBackground: '#2ecc38', 
-    sendButtonHover: '#2ddc84' 
+    sendButtonHover: '#2ddc84' ,
+    separatorItemRoadMap: 'bg-cyan-400'
+
   },
 };
 
