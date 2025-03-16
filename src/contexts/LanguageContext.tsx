@@ -23,7 +23,13 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   }, [language]);
 
   const t = (key: TranslationKey): string => {
-    return translations[language][key] || key;
+    const translation = translations[language][key];
+    if (typeof translation === 'string') {
+      return translation;
+    } else if (Array.isArray(translation)) {
+      return translation.map(item => item.description).join(', ');
+    }
+    return key;
   };
 
   return (
