@@ -9,7 +9,7 @@ interface HeroSectionProps {
 
 export function HeroSection({ id }: HeroSectionProps) {
   const { t } = useLanguage();
-  const { theme, themeColors } = useTheme();
+  const { themeColors } = useTheme();
 
   return (
     <main id={id} className="relative min-h-screen flex items-center justify-center overflow-hidden">

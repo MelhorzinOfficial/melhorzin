@@ -50,7 +50,7 @@ const TimelineItem: React.FC<{ node: TimelineNode }> = ({ node }) => {
 
         {/* Lista de períodos e descrições, com linha separadora entre itens */}
         <div className="flex flex-col">
-          {node.items.map((item, index) => (
+          {Array.isArray(node.items) ? node.items.map((item, index) => (
             <div key={index} className="flex flex-col items-start">
               <div className="w-full">
                 {item.period && (
@@ -75,7 +75,7 @@ const TimelineItem: React.FC<{ node: TimelineNode }> = ({ node }) => {
                 ></div>
               )}
             </div>
-          ))}
+          )) : null}
         </div>
       </motion.div>
     </div>
