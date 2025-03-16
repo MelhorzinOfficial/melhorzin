@@ -14,54 +14,64 @@ interface TimelineNode {
   isLeft: boolean;
 }
 
-
 const TimelineItem: React.FC<{ node: TimelineNode }> = ({ node }) => {
   const { themeColors } = useTheme();
 
   return (
     <div className={`relative flex ${node.isLeft ? 'justify-start' : 'justify-end'} w-full`}>
       {/* Marcador da timeline */}
-      <div className="absolute left-1/2 -ml-3 top-1/2 transform -translate-y-1/2">
+      <div
+        className="absolute left-4 xs:left-0 md:left-[50%] top-1/2 transform -translate-y-1/2 md:-translate-x-1/2 hidden md:block display:none"
+      >
         <div
           className="w-6 h-6 rounded-full border-4 bg-white"
           style={{ borderColor: themeColors.accent }}
         ></div>
       </div>
 
-      {/* Card do evento */}
+      {/* Card do evento - mobile: full width with padding, desktop: 45% width */}
       <motion.div
-        className="w-full md:w-5/12 p-6 rounded-xl shadow-lg text-left md:ml-8"
+        className="w-full md:w-[45%] p-4 sm:p-6 rounded-xl shadow-lg text-left mx-2 md:mx-0"
         style={{
           backgroundColor: themeColors.glassBg,
           border: `1px solid ${themeColors.cardBorder}`,
         }}
-        initial={{ opacity: 0, x: node.isLeft ? -100 : 100 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, x: node.isLeft ? -50 : 50, y: 20 }}
+        whileInView={{ opacity: 1, x: 0, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5 }}
       >
-        <h4 className="text-2xl font-semibold mb-4" style={{ color: themeColors.accent }}>
+        <h4
+          className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4"
+          style={{ color: themeColors.accent }}
+        >
           {node.title}
         </h4>
 
-        {/* Renderiza a lista de períodos e descrições com separador */}
+        {/* Lista de períodos e descrições, com linha separadora entre itens */}
         <div className="flex flex-col">
           {node.items.map((item, index) => (
             <div key={index} className="flex flex-col items-start">
               <div className="w-full">
                 {item.period && (
-                  <span className="block text-sm font-bold" style={{ color: themeColors.text }}>
+                  <span
+                    className="block text-sm font-bold"
+                    style={{ color: themeColors.text }}
+                  >
                     {item.period}
                   </span>
                 )}
-                <p className="text-base mt-1" style={{ color: themeColors.text }}>
+                <p
+                  className="text-sm sm:text-base mt-1"
+                  style={{ color: themeColors.text }}
+                >
                   {item.description}
                 </p>
               </div>
-              {/* Pequena linha separadora entre os itens */}
+              {/* Linha separadora entre cada item (quando não for o último) */}
               {index !== node.items.length - 1 && (
                 <div
-                  className={`w-0.5 h-6 my-2 ml-10 ${themeColors.separatorItemRoadMap}`}
+                  className={`w-0.5 h-4 sm:h-6 my-2 ml-4 sm:ml-10 ${themeColors.separatorItemRoadMap}`}
                 ></div>
               )}
             </div>
@@ -71,7 +81,6 @@ const TimelineItem: React.FC<{ node: TimelineNode }> = ({ node }) => {
     </div>
   );
 };
-
 
 export const Roadmap: React.FC = () => {
   const { themeColors } = useTheme();
@@ -104,22 +113,33 @@ export const Roadmap: React.FC = () => {
   );
 
   return (
-    <div className="py-16 relative" id="jornada">
-      {/* Title of the roadmap */}
-      <h3 className="text-4xl font-bold mb-12 text-center" style={{ color: themeColors.text }}>
-        {t('career.title')}
-      </h3>
-
-      {/* Timeline container */}
+    <div className="py-8 sm:py-16 relative" id="jornada">
+      {/* Container da timeline */}
       <div className="relative container mx-auto px-2">
-        {/* Linha vertical central */}
+        {/* Linha vertical principal - visível apenas em telas médias e maiores */}
         <div
-          className="absolute left-1/2 top-0 bottom-0 w-1 transform -translate-x-1/2"
-          style={{ backgroundColor: themeColors.accent }}
+          className={`absolute top-0 bottom-0 left-4 xs:left-0 md:left-[50%] w-1 hidden md:block`}
+          style={{
+            backgroundColor: themeColors.accent,
+            marginLeft: '-2px',
+          }}
         />
-        <div className="space-y-12">
+        {/* Mobile Timeline - visível apenas em telas pequenas */}
+        <div
+          className={`absolute hidden sm:hidden top-0 bottom-0 left-4 w-1 block md:hidden`}
+          style={{
+            backgroundColor: themeColors.accent,
+          }}
+        />
+        <div className="space-y-8 sm:space-y-12">
           {nodes.map((node, index) => (
-            <TimelineItem key={node.id} node={{ ...node as unknown as TimelineNode, isLeft: index % 2 === 0 }} />
+            <TimelineItem
+              key={node.id}
+              node={{
+                ...node as unknown as TimelineNode,
+                isLeft: index % 2 === 0,
+              }}
+            />
           ))}
         </div>
       </div>
