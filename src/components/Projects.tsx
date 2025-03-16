@@ -25,13 +25,14 @@ export const Projects: React.FC = () => {
           <h2 className="text-2xl font-bold mb-6 pb-2 border-b border-accent/20">
             {t('completedProjects')}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
             <ProjectCard
               title={'ProjectPetx.title'}
               description={'ProjectPetx.description'}
               image="../public/projeto-petx.png"
               technologies={['Java', 'Spring Boot', 'JWT', 'Postgres']}
               link="https://github.com/vitorlana45/BackEnd-Petx"
+              status="completed"
             />
             <ProjectCard
               title={'projectReservas.title'}
@@ -39,6 +40,7 @@ export const Projects: React.FC = () => {
               image="../public/cap-reservas-page.png"
               technologies={['Angular', 'TypeScript', 'CSS']}
               link="https://github.com/vitorlana45/Reservas.com"
+              status="completed"
             />
           </div>
         </div>
@@ -56,6 +58,7 @@ export const Projects: React.FC = () => {
               image="../public/chatbot-project.jpg"
               technologies={['Java', 'Springboot', 'Postgres']}
               link=""
+              status="in-progress"
             />
           </div>
         </div>

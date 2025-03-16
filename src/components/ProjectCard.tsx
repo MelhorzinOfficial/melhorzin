@@ -11,20 +11,20 @@ interface ProjectCardProps {
   status?: 'completed' | 'in-progress';
 }
 
-export function ProjectCard({ 
-  title, 
-  description, 
-  image, 
-  link, 
-  technologies, 
-  status = 'completed' 
+export function ProjectCard({
+  title,
+  description,
+  image,
+  link,
+  technologies,
+  status = 'completed'
 }: ProjectCardProps) {
   const { t } = useLanguage();
   const { themeColors } = useTheme();
 
   return (
     <motion.div
-      className="group"
+      className="group w-full"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -34,39 +34,49 @@ export function ProjectCard({
         href={link}
         target="_blank"
         rel="noopener noreferrer"
-        className="relative block rounded-xl overflow-hidden"
+        className="relative block rounded-xl overflow-hidden h-full"
         style={{
           backgroundColor: themeColors.glassBg,
           backdropFilter: 'blur(10px)',
           border: `1px solid ${themeColors.cardBorder}`,
           boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)'
         }}
-        whileHover={{ 
+        whileHover={{
           scale: 1.03,
           boxShadow: `0 20px 40px rgba(0, 0, 0, 0.2), 0 0 20px ${themeColors.glowAccent}`
         }}
       >
         {/* Indicador de status */}
-        {status === 'in-progress' && (
+        {status === 'completed' ? (
           <div className="absolute top-4 right-4 z-30 px-3 py-1 rounded-full text-xs font-medium"
-            style={{ 
+            style={{
               backgroundColor: `${themeColors.accent}22`,
               color: themeColors.accent,
               border: `1px solid ${themeColors.accent}66`
             }}
           >
-            {t('ProjectPetx.status')}
+            {t('statusProjectCompleted' as any)}
           </div>
-        )}
-        
+        ) : status === 'in-progress' ? (
+          <div className="absolute top-4 right-4 z-30 px-3 py-1 rounded-full text-xs font-medium"
+            style={{
+              backgroundColor: `${themeColors.primary}22`,
+              color: themeColors.primary,
+              border: `1px solid ${themeColors.primary}66`
+            }}
+          >
+            {t('statusProjectInProgress' as any)}
+          </div>
+        ) : null}
+
         {/* Acento de borda simplificado */}
         <div className="absolute inset-0 rounded-xl z-0" style={{
           background: `linear-gradient(135deg, transparent 70%, ${themeColors.accent}66 100%)`,
           opacity: 0.2
         }}></div>
-        
+
         <div className="relative z-10 p-5">
-          {/* Imagem do projeto com overlay futurista */}
+          {/* Imagem do projeto com overlay */}
           <div className="relative w-full h-40 mb-4 overflow-hidden rounded-lg">
             <motion.div
               className="absolute inset-0 z-10"
@@ -76,7 +86,7 @@ export function ProjectCard({
               }}
               whileHover={{ opacity: 0.4 }}
             />
-            
+
             <motion.img
               src={image}
               alt={t('renitAlert')}
@@ -87,22 +97,22 @@ export function ProjectCard({
           </div>
 
           {/* Project content */}
-          <div className="relative z-20">
+          <div className=" relative z-20">
             <h3 className="text-xl font-bold mb-2" style={{ color: themeColors.text }}>{t(title as any)}</h3>
             <p className="mb-4" style={{ color: `${themeColors.text}cc` }}>{t(description as any)}</p>
-            
+
             {/* Tecnologias - layout mais compacto */}
-            <div className="flex flex-wrap gap-1 mb-3">
+            <div className="flex flex-wrap gap-1 mb-3 ">
               {technologies.map((tech, index) => (
                 <motion.span
                   key={index}
                   className="px-2 py-0.5 text-xs rounded-full"
-                  style={{ 
+                  style={{
                     backgroundColor: `${themeColors.glassBg}`,
                     color: themeColors.text,
                     border: `1px solid ${themeColors.accent}66`
                   }}
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.05,
                     boxShadow: `0 0 8px ${themeColors.glowAccent}`
                   }}
@@ -111,9 +121,9 @@ export function ProjectCard({
                 </motion.span>
               ))}
             </div>
-            
+
             {/* Botão de visualização simplificado */}
-            <motion.div 
+            <motion.div
               className="inline-flex items-center gap-1 text-sm font-medium"
               style={{ color: themeColors.accent }}
               whileHover={{ x: 5 }}

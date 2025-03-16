@@ -34,14 +34,16 @@ export const translations = {
     'viewProject': 'Ver projeto',
     'viewProgress': 'Ver progresso',
     'completedProjects': 'Projetos Concluídos',
-    'inProgressProjects': 'Trabalhando Em',
+    'inProgressProjects': 'Em Andamento',
     'progress.concluido': 'Concluído',
     'shelterManagementSystem': 'Sistema de Gestão para Abrigo de Animais',
     'shelterManagementDesc': 'API desenvolvida com Spring Boot para gerenciar um abrigo de animais.',
     'resortManagementSystem': 'Sistema de Gestão para Resorts',
     'resortManagementDesc': 'Sistema de reservas online para um Resort com autenticação e gerenciamento de reservas.',
     'renitAlert': 'RenitAlert - Monitoramento de Rinite',
-    'renitAlertDesc': 'Sistema inteligente que alerta sobre condições meteorológicas que podem desencadear sintomas de rinite, utilizando dados de temperatura e umidade.'
+    'renitAlertDesc': 'Sistema inteligente que alerta sobre condições meteorológicas que podem desencadear sintomas de rinite, utilizando dados de temperatura e umidade.',
+    'statusProjectCompleted': 'Concluído',
+    'statusProjectInProgress': 'Em Andamento'
   },
   en: {
     'nav.home': 'Home',
@@ -85,7 +87,9 @@ export const translations = {
     'resortManagementSystem': 'Resort Management System',
     'resortManagementDesc': 'Online reservation system for a Resort with authentication and booking management.',
     'renitAlert': 'RenitAlert - Rhinitis Monitoring',
-    'renitAlertDesc': 'Intelligent system that alerts users about weather conditions that may trigger rhinitis symptoms, using temperature and humidity data.'
+    'renitAlertDesc': 'Intelligent system that alerts users about weather conditions that may trigger rhinitis symptoms, using temperature and humidity data.',
+    'statusProjectCompleted': 'Completed',
+    'statusProjectInProgress': 'In Progress'
   },
   es: {
     'nav.home': 'Inicio',
@@ -129,6 +133,8 @@ export const translations = {
     'resortManagementSystem': 'Sistema de Gestión para Resorts',
     'resortManagementDesc': 'Sistema de reservas en línea para un resort con autenticación y gestión de reservas.',
     'renitAlert': 'RenitAlert - Monitoreo de Rinitis',
-    'renitAlertDesc': 'Sistema inteligente que alerta sobre condiciones meteorológicas que pueden desencadenar síntomas de rinitis, utilizando datos de temperatura y humedad.'
+    'renitAlertDesc': 'Sistema inteligente que alerta sobre condiciones meteorológicas que pueden desencadenar síntomas de rinitis, utilizando datos de temperatura y humedad.',
+    'statusProjectCompleted': 'Completado',
+    'statusProjectInProgress': 'En Progreso'
   }
 };
