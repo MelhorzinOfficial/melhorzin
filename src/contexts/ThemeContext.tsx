@@ -26,6 +26,8 @@ interface ThemeColors {
   sendButtonHover: string;
   separatorItemRoadMap: string;
   buttonResume: string;
+  scrollBarThumb: string;
+  scrollBarTrack: string;
 }
 
 export type Theme = 'light' | 'water' | 'dark' | 'fire' | 'earth' | 'air' | 'galactic';
@@ -60,8 +62,10 @@ const themes: Record<Theme, ThemeColors> = {
     buttonHover: '#1565C0',
     sendButtonBackground: '#4CAF50',
     sendButtonHover: '#388E3C',
-    separatorItemRoadMap: '#E0E0E0',
+    separatorItemRoadMap: 'bg-yellow-400',
     buttonResume: '#2196F3',
+    scrollBarThumb: "#B0B0B0",
+    scrollBarTrack: "#E0E0E0"
   },
   fire: {
     background: '#2B1B17', // Marrom escuro vulcânico mais suave
@@ -89,6 +93,8 @@ const themes: Record<Theme, ThemeColors> = {
     sendButtonHover: '#F9A826', // Hover em âmbar
     separatorItemRoadMap: 'bg-amber-400', // Separador âmbar
     buttonResume: '#F9A826', // Botão de currículo âmbar
+    scrollBarThumb: "#FF7043",
+    scrollBarTrack: "#2B1B17"
   },
   galactic: {
     background: '#010B14', // Azul-negro espacial profundo
@@ -116,6 +122,8 @@ const themes: Record<Theme, ThemeColors> = {
     sendButtonHover: '#7B00FF', // Hover em roxo cósmico
     separatorItemRoadMap: 'bg-purple-700', // Separador roxo
     buttonResume: '#7B00FF', // Botão de currículo roxo cósmico
+    scrollBarThumb: "#7B00FF",
+    scrollBarTrack: "#010B14"
   },
   earth: {
     background: '#1B3A2F',
@@ -143,6 +151,8 @@ const themes: Record<Theme, ThemeColors> = {
     sendButtonHover: '#4CAF50',
     separatorItemRoadMap: '#2E7D32',
     buttonResume: '#4CAF50',
+    scrollBarThumb: "#4CAF50",
+    scrollBarTrack: "#1B3A2F"
   },
   water: {
     background: '#001C30', // Azul marinho profundo como o abismo oceânico
@@ -170,6 +180,8 @@ const themes: Record<Theme, ThemeColors> = {
     sendButtonHover: '#0ACDFF', // Hover em azul ciano elétrico
     separatorItemRoadMap: 'bg-cyan-500', // Separador ciano
     buttonResume: '#0ACDFF', // Botão de currículo azul ciano elétrico
+    scrollBarThumb: "#0ACDFF",
+    scrollBarTrack: "#001C30"
   },
   dark: {
     background: '#111111', // Preto profundo espacial
@@ -197,6 +209,8 @@ const themes: Record<Theme, ThemeColors> = {
     sendButtonHover: '#00B8D4', // Hover em turquesa mais escuro
     separatorItemRoadMap: 'bg-blue-600', // Separador azul
     buttonResume: '#4D7AFF', // Botão de currículo azul estelar
+    scrollBarThumb: "#4D7AFF",
+    scrollBarTrack: "#111111"
   },
   air: {
     background: '#EDF6F9', // Azul céu muito claro
@@ -224,10 +238,12 @@ const themes: Record<Theme, ThemeColors> = {
     sendButtonHover: '#006D77', // Hover verde-azulado escuro
     separatorItemRoadMap: '#83C5BE', // Separador verde-água
     buttonResume: '#006D77', // Botão currículo verde-azulado
+    scrollBarThumb: "#006D77",
+    scrollBarTrack: "#EDF6F9"
   },
 };
-  
-  
+
+
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
@@ -241,6 +257,9 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     localStorage.setItem('theme', theme);
     document.documentElement.classList.remove('light', 'dark', 'water', 'fire', 'earth', 'air', 'galactic');
     document.documentElement.classList.add(theme);
+  
+    document.documentElement.style.setProperty('--scrollBarThumb', themes[theme].scrollBarThumb);
+    document.documentElement.style.setProperty('--scrollBarTrack', themes[theme].scrollBarTrack);
   }, [theme]);
 
   // Função para selecionar um novo tema

@@ -29,7 +29,7 @@ export const Projects: React.FC = () => {
             <ProjectCard
               title={'ProjectPetx.title'}
               description={'ProjectPetx.description'}
-              image="../public/projeto-petx.png"
+              image="projeto-petx.png"
               technologies={['Java', 'Spring Boot', 'JWT', 'Postgres']}
               link="https://github.com/vitorlana45/BackEnd-Petx"
               status="completed"
@@ -37,7 +37,7 @@ export const Projects: React.FC = () => {
             <ProjectCard
               title={'projectReservas.title'}
               description={'projectReservas.description'}
-              image="../public/cap-reservas-page.png"
+              image="cap-reservas-page.png"
               technologies={['Angular', 'TypeScript', 'CSS']}
               link="https://github.com/vitorlana45/Reservas.com"
               status="completed"
@@ -46,22 +46,22 @@ export const Projects: React.FC = () => {
         </div>
 
         {/* Projetos em Andamento */}
-        <div className="mt-12">
-          <h2 className="text-2xl font-bold mb-6 pb-2 border-b border-accent/20">
+        {/* <div className="mt-12"> */}
+          {/* <h2 className="text-2xl font-bold mb-6 pb-2 border-b border-accent/20">
             {t('inProgressProjects')}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8"> */}
             {/* Exemplo de projeto em andamento */}
-            <ProjectCard
+            {/* <ProjectCard
               title={'renitAlert'}
               description={'renitAlertDesc'}
-              image="../public/chatbot-project.jpg"
+              image=""
               technologies={['Java', 'Springboot', 'Postgres']}
               link=""
               status="in-progress"
-            />
-          </div>
-        </div>
+            /> */}
+          {/* </div>
+        </div> */}
       </Section>
     </motion.div>
   )

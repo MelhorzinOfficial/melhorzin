@@ -6,16 +6,14 @@ export const translations = {
     'nav.skills': 'Habilidades',
     'nav.contact': 'Contato',
     'nav.career': 'Jornada',
-    'hero.role': 'Desenvolvedor Back End',
-    'hero.description': 'Olá, sou o Vitor, estudante universitário focado em Java com Spring Boot no back-end e recentemente mergulhado em JavaScript, HTML e CSS. Estou animado em integrar back-end e front-end, criando aplicativos e interfaces dinâmicas. Sempre em busca de novos desafios e oportunidades de crescimento!',
-    'hero.title': 'Eu sou Vitor.',
-    'hero.subtitle': 'Desenvolvedor Back End',
+    'hero.title': 'Eu sou o Vitor.',
+    'hero.subtitle': 'Desenvolvedor Full Stack',
+    'hero.description': 'Adoro transformar desafios em soluções inteligentes. Vamos criar algo incrível juntos?',
     'hero.projects': 'Ver projetos',
     'hero.contact': 'Contato',
     'hero.resume': 'Baixar CV',
     'about.title': 'Sobre Mim',
-    'about.description': 'Desenvolvedor apaixonado por criar soluções inovadoras, com foco em desenvolvimento back-end usando Java e Spring Boot. Atualmente, estou expandindo meus horizontes no desenvolvimento front-end com React e TypeScript. Minha jornada inclui experiência com bancos de dados relacionais e não-relacionais, além de práticas modernas de desenvolvimento como Docker e controle de versão com Git. Busco constantemente aprender novas tecnologias e aprimorar minhas habilidades para criar aplicações web robustas e escaláveis.',
-    'projects.title': 'Projetos',
+    'about.description': 'Sou um Desenvolvedor Full Stack apaixonado por tecnologia e desenvolvimento de software. Minha principal experiência é com Java e Spring Boot no back-end, mas recentemente tenho explorado o ecossistema Node.js e React no front-end. Estou sempre em busca de aprender novas tecnologias e evoluir tanto profissionalmente quanto pessoalmente.',
     'ProjectPetx.title': 'Sistema de Gestão para Ong Viva Bicho',
     'ProjectPetx.description': 'API desenvolvida com Spring Boot para gerenciar um abrigo de animais, incluindo autenticação JWT, controle de animais, gerenciamento financeiro, estoque e restrição de acesso a dados sensíveis. Documentação Swagger e testes unitários implementados.',
     'ProjectPetx.status': 'concluído',
@@ -55,11 +53,14 @@ export const translations = {
     'modalButtonSend': 'Enviar',
     'modalButtonClose': 'Fechar',
     'yourEmail': 'Seu Email',
-
+    'carrer.enterprise': 'Empresa',
+    'carrer.position': 'Cargo',
     // Carreira
     
-    'career.learning_growth': 'Aprendizado e Crescimento',
+    'career.learning_growth': 'Estudando',
     'career.currently': 'Atualmente',
+    'career.enterprise': 'Reconecta',
+    'career.position': 'Full Stack Developer',
     'career.education.items': [
       { period: '2022 - 2023', description: 'Estudante de forma autodidata e em Bootcamps buscando conteúdos.' },
       { period: '2024 - 2025', description: 'Bootcamp DevSuperior - Java Spring Expert.' },
@@ -67,24 +68,19 @@ export const translations = {
     ],
     'career.experience.items': [
       {
-        period: '2022 - 2023',
-        description: 'Desenvolvedor Back-End Jr. APIs RESTful com Java e Spring Boot. Implementação de autenticação JWT.',
+        period: 'JAN-2025 - Desenvolvedor Full Stack JR',
+        description: 'Cargo: Desenvolvedor Full Stack. Backend N8N e Frontend React, Weweb e aplicações em python',
+        currentWork: true,
       },
       {
-        period: '2023 - Presente',
-        description: 'Desenvolvedor Full Stack. Trabalhando com React, TypeScript e Spring Boot, criando interfaces responsivas.',
-      },
+        period: 'NOV-2024 - JAN-2025 - Projeto Voluntário Ong de Proteção Animal',
+        description: 'Desenvolvimento de um sistema de gestão para Ong de proteção animal, com controle de animais, financeiro, estoque e adoções.',
+        currentWork: false,
+      }
     ],
     'career.learning_growth.items': [
       { description: 'Microservices e Arquitetura Orientada a Eventos: Aprofundamento em sistemas distribuídos com Spring Cloud, Kafka, RabbitMQ.' },
       { description: 'React Avançado: Aprofundamento em React, Hooks, Context API, Redux, Next.js, Gatsby.' },
-    ],
-    'career.currently.items': [
-      {
-        period: 'JAN-2025 - Presente',
-        description: 'Cargo: Desenvolvedor Full Stack. Trabalhando em um time ágil para criar e melhorar aplicações web e APIs utilizando React, TypeScript, Spring Boot e PostgreSQL. Desenvolvimento de interfaces responsivas e integração com sistemas de pagamento. Responsável por implementar funcionalidades de segurança com JWT e otimizar processos no back-end.',
-        technologies: ['React', 'TypeScript', 'Spring Boot', 'PostgreSQL', 'Docker', 'AWS', 'Jenkins', 'CI/CD'],
-      },
     ],
   },
   en: {
@@ -94,15 +90,15 @@ export const translations = {
     'nav.skills': 'Skills',
     'nav.contact': 'Contact',
     'nav.career': 'Career',
-    'hero.role': 'Back End Developer',
-    'hero.description': 'Hi, I\'m Vitor, a university student focused on Java with Spring Boot in back-end and recently immersed in JavaScript, HTML, and CSS. I\'m excited about integrating back-end and front-end, creating dynamic applications and interfaces. Always looking for new challenges and growth opportunities!',
-    'hero.title': 'I\'m Vitor.',
-    'hero.subtitle': 'Back End Developer',
+    'hero.role': 'Full Stack Developer',
+    'hero.title': "I'm Vitor.",
+    'hero.subtitle': "Full Stack Developer",
+    'hero.description': "I love turning challenges into smart solutions. Let's create something amazing together?",
     'hero.projects': 'View projects',
     'hero.contact': 'Contact me',
     'hero.resume': 'Resume',
     'about.title': 'About Me',
-    'about.description': 'Developer passionate about creating innovative solutions, focusing on back-end development using Java and Spring Boot. Currently expanding my horizons in front-end development with React and TypeScript. My journey includes experience with both relational and non-relational databases, as well as modern development practices like Docker and version control with Git. I constantly seek to learn new technologies and improve my skills to create robust and scalable web applications.',
+    'about.description': "I'm a Full Stack Developer passionate about technology and software development. My main experience is with Java and Spring Boot on the back-end, but recently I've been exploring the Node.js and React ecosystem on the front-end. I'm always looking to learn new technologies and grow both professionally and personally.",
     'projects.title': 'Projects',
     'ProjectPetx.title': 'Animal Shelter Management  Ong Viva Bicho',
     'ProjectPetx.description': 'API developed with Spring Boot to manage an animal shelter, including JWT authentication, animal control, financial management, stock, and restricted access to sensitive data. Swagger documentation and unit tests implemented.',
@@ -141,12 +137,16 @@ export const translations = {
     'modalButtonClose': 'Close',
     'yourEmail': 'Your Email',
 
+
+
   // Carreira 
 
   'career.education': 'Education',
     'career.experience': 'Experience',
     'career.learning_growth': 'Learning and Growth',
     'career.currently': 'Currently',
+    'carrer.enterprise': 'enterprise',
+    'carrer.position': 'position',
     'career.education.items': [
       { period: '2022 - 2023', description: 'Self-taught and Bootcamp student seeking content.' },
       { period: '2024 - 2025', description: 'DevSuperior Bootcamp - Java Spring Expert.' },
@@ -154,24 +154,17 @@ export const translations = {
     ],
     'career.experience.items': [
       {
-        period: '2022 - 2023',
-        description: 'Junior Back-End Developer. RESTful APIs with Java and Spring Boot. JWT authentication implementation.',
+        period: 'JAN-2025 - Full Stack Developer JR',
+        description: 'Position: Full Stack Developer. Backend N8N and Frontend React, Weweb and python applications',
       },
       {
-        period: '2023 - Present',
-        description: 'Full Stack Developer. Working with React, TypeScript, and Spring Boot, creating responsive interfaces.',
-      },
+        period: 'NOV-2024 - JAN-2025 - Volunteer Project Animal Protection Ong',
+        description: 'Development of a management system for an animal protection Ong, with animal control, financial, stock and adoptions.',
+      }
     ],
     'career.learning_growth.items': [
       { description: 'Microservices and Event-Driven Architecture: In-depth knowledge of distributed systems with Spring Cloud, Kafka, RabbitMQ.' },
       { description: 'Advanced React: In-depth knowledge of React, Hooks, Context API, Redux, Next.js, Gatsby.' },
-    ],
-    'career.currently.items': [
-      {
-        period: 'JAN-2025 - Present',
-        description: 'Position: Full Stack Developer. Working in an agile team to build and improve web applications and APIs using React, TypeScript, Spring Boot, and PostgreSQL. Developing responsive interfaces and integrating with payment systems. Responsible for implementing security features with JWT and optimizing back-end processes.',
-        technologies: ['React', 'TypeScript', 'Spring Boot', 'PostgreSQL', 'Docker', 'AWS', 'Jenkins', 'CI/CD'],
-      },
     ],
   },
   es: {
@@ -181,15 +174,14 @@ export const translations = {
     'nav.skills': 'Habilidades',
     'nav.contact': 'Contacto',
     'nav.career': 'Carrera',
-    'hero.role': 'Desarrollador Back End',
-    'hero.description': '¡Hola! Soy Vitor, estudiante universitario enfocado en Java con Spring Boot en back-end y recientemente inmerso en JavaScript, HTML y CSS. Estoy emocionado por integrar back-end y front-end, creando aplicaciones e interfaces dinámicas. ¡Siempre buscando nuevos desafíos y oportunidades de crecimiento!',
-    'hero.title': 'Soy Vitor.',
-    'hero.subtitle': 'Desarrollador Back End',
+    'hero.title': "Soy Vitor.",
+    'hero.subtitle': "Desarrollador Full Stack",
+    'hero.description': "Me encanta convertir desafíos en soluciones inteligentes. ¿Creamos algo increíble juntos?",
+    'about.description': "Soy un Desarrollador Full Stack apasionado por la tecnología y el desarrollo de software. Mi principal experiencia es con Java y Spring Boot en el back-end, pero recientemente he estado explorando el ecosistema de Node.js y React en el front-end. Siempre estoy buscando aprender nuevas tecnologías y crecer tanto profesional como personalmente.",
     'hero.projects': 'Ver proyectos',
     'hero.contact': 'Contacto',
     'hero.resume': 'Descargar CV',
     'about.title': 'Sobre Mí',
-    'about.description': 'Desarrollador apasionado por crear soluciones innovadoras, enfocado en el desarrollo back-end usando Java y Spring Boot. Actualmente expandiendo mis horizontes en el desarrollo front-end con React y TypeScript. Mi trayectoria incluye experiencia con bases de datos relacionales y no relacionales, así como prácticas modernas de desarrollo como Docker y control de versiones con Git. Busco constantemente aprender nuevas tecnologías y mejorar mis habilidades para crear aplicaciones web robustas y escalables.',
     'projects.title': 'Proyectos',
     'ProjectPetx.title': 'Sistema de Gestión para Ong Viva Bicho',
     'ProjectPetx.description': 'API desarrollada con Spring Boot para gestionar un refugio de animales, incluyendo autenticación JWT, control de animales, gestión financiera, inventario y acceso restringido a datos sensibles. Documentación Swagger y pruebas unitarias implementadas.',
@@ -226,6 +218,8 @@ export const translations = {
     'fieldsError': 'Rellena todos los campos.',
     'emailSent': '¡Email enviado con éxito!',
     'emailFailed': 'Error al enviar el email. Inténtalo de nuevo más tarde.',
+    'enterprise': 'Empresa',
+    'position': 'Cargo',
     'modalButtonSend': 'Enviar',
     'modalButtonClose': 'Cerrar',
       'career.education': 'Educación',
@@ -239,24 +233,20 @@ export const translations = {
       ],
       'career.experience.items': [
         {
-          period: '2022 - 2023',
-          description: 'Desarrollador Back-End Jr. APIs RESTful con Java y Spring Boot. Implementación de autenticación JWT.',
+          period: 'ENE-2025 - Full Stack Developer JR',
+          description: 'Cargo: Desarrollador Full Stack. Backend N8N y Frontend React, Weweb y aplicaciones en python',
         },
         {
-          period: '2023 - Presente',
-          description: 'Desarrollador Full Stack. Trabajando con React, TypeScript y Spring Boot, creando interfaces responsivas.',
-        },
+          period: 'NOV-2024 - ENE-2025 - Proyecto Voluntario Ong de Protección Animal',
+          description: 'Desarrollo de un sistema de gestión para una Ong de protección animal, con control de animales, financiero, inventario y adopciones.',
+        }
       ],
       'career.learning_growth.items': [
         { description: 'Microservicios y Arquitectura Orientada a Eventos: Profundización en sistemas distribuidos con Spring Cloud, Kafka, RabbitMQ.' },
         { description: 'React Avanzado: Profundización en React, Hooks, Context API, Redux, Next.js, Gatsby.' },
       ],
       'career.currently.items': [
-        {
-          period: 'ENE-2025 - Presente',
-          description: 'Cargo: Desarrollador Full Stack. Trabajando en un equipo ágil para crear y mejorar aplicaciones web y APIs utilizando React, TypeScript, Spring Boot y PostgreSQL. Desarrollo de interfaces responsivas e integración con sistemas de pago. Responsable de implementar funcionalidades de seguridad con JWT y optimizar procesos en el back-end.',
-          technologies: ['React', 'TypeScript', 'Spring Boot', 'PostgreSQL', 'Docker', 'AWS', 'Jenkins', 'CI/CD'],
-        },
+     
       ],
     }
 };

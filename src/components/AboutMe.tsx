@@ -74,7 +74,7 @@ export const AboutMe : React.FC = () => {
                     Back End
                   </h4>
                   <ul className="space-y-3">
-                    {['Java', 'Spring Boot', 'JPA/Hibernate', 'Maven'].map((skill, index) => (
+                    {['Java', 'Spring Boot', 'JPA/Hibernate', 'Maven', 'NodeJs', 'N8N'].map((skill, index) => (
                       <motion.li
                         key={index}
                         className="flex items-center"
@@ -133,7 +133,7 @@ export const AboutMe : React.FC = () => {
                     Front End
                   </h4>
                   <ul className="space-y-3">
-                    {['React', 'TypeScript', 'HTML/CSS', 'Tailwind CSS'].map((skill, index) => (
+                    {['React', 'TypeScript', 'HTML/CSS', 'Tailwind CSS', 'Weweb'].map((skill, index) => (
                       <motion.li
                         key={index}
                         className="flex items-center"
@@ -174,7 +174,7 @@ export const AboutMe : React.FC = () => {
                     }}
                   ></div>
                   <img
-                    src="/../public/me2.png"
+                    src="me2.png"
                     alt="About Me"
                     className="w-full h-full object-cover"
                   />

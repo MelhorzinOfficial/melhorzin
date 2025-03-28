@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useLanguage } from '../contexts/LanguageContext';
+import sendEmail from '../service/SendEmail';
 
 interface EmailModalProps {
   isOpen: boolean;
@@ -17,10 +18,10 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose }) => {
   const [error, setError] = useState('');
    const { t } = useLanguage();
 
-  const handleSubmit = (e: React.FormEvent) => {
+   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Validação simples do email e verificação dos campos
+  
+    // Validação do email
     const emailValid = /\S+@\S+\.\S+/.test(email);
     if (!emailValid) {
       setError('Insira um email válido.');
@@ -30,12 +31,28 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose }) => {
       setError('Preencha todos os campos.');
       return;
     }
-    
-    setEmail('');
-    setSubject('');
-    setMessage('');
-    setError('');
-    onClose();
+  
+    const formData = {
+      name: subject,
+      email,
+      message,
+    };
+  
+    try {
+      const result = await sendEmail({ ...formData });
+      
+      if (result.success) {
+        setEmail('');
+        setSubject('');
+        setMessage('');
+        setError('');
+        onClose();
+      } else {
+        setError('Erro ao enviar o email.');
+      }
+    } catch (error) {
+      setError('Ocorreu um erro inesperado ao enviar o email.');
+    }
   };
 
   if (!isOpen) {
@@ -179,7 +196,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onClose }) => {
         {/* Imagem ao lado */}
         <div className="w-full md:w-1/3 p-4">
           <img
-            src="../../public/java-surf.png"
+            src="grind-grinding.gif"
             alt="Ilustração do email"
             className="object-contain w-full h-full rounded-lg"
           />

@@ -44,3 +44,21 @@ body {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
 }
+
+::-webkit-scrollbar {
+  width: var(--scrollBarWidth);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollBarTrack);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollBarThumb);
+}
+
+/* Opcional: para Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollBarThumb) var(--scrollBarTrack);
+}

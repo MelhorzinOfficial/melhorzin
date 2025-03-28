@@ -13,7 +13,7 @@ export function HeroSection({ id }: HeroSectionProps) {
 
   return (
     <main id={id} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <iframe name="iframe_download" className="hidden"></iframe>
+      {/* <iframe name="iframe_download" className="hidden"></iframe> */}
 
         {/* Glow orbs */}
         <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full" style={{
@@ -67,33 +67,7 @@ export function HeroSection({ id }: HeroSectionProps) {
               transition={{ duration: 0.6, delay: 0.6 }}
             >
 
-              {/* Download Resume Button */}
-              <motion.a
-                href="/VitorLana.pdf"
-                download
-                className="group relative inline-flex items-center gap-2"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <div
-                  className="absolute -inset-2 rounded-lg blur opacity-0 group-hover:opacity-100 transition duration-500"
-                  style={{
-                    background: `linear-gradient(1deg, ${themeColors.gradientEnd}, ${themeColors.gradientStart})`
-                  }}
-                ></div>
-                <div
-                  className="relative px-6 py-3 rounded-lg text-white transition-colors duration-300 ring-1 ring-opacity-30"
-                  style={{
-                    backgroundColor: themeColors.buttonResume,
-                    backdropFilter: 'blur(10px)',
-                    borderColor: themeColors.border
-                  }}
-                >
-                  {t('hero.resume')}
-                </div>
-              </motion.a>
-
-              <motion.a
+              {/* <motion.a
                 href="#projetos"
                 className="px-6 py-3 rounded-lg transition-colors duration-300"
                 whileHover={{ scale: 1.05 }}
@@ -105,7 +79,7 @@ export function HeroSection({ id }: HeroSectionProps) {
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
                 {t('hero.projects')}
-              </motion.a>
+              </motion.a> */}
             </motion.div>
           </div>
 
@@ -138,7 +112,7 @@ export function HeroSection({ id }: HeroSectionProps) {
                   }}></div>
 
                 <img
-                  src="/../public/me2.png"
+                  src="/me2.png"
                   alt="Vitor Lana"
                   className="w-full h-full object-cover"
                 />

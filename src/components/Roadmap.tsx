@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLanguage } from '../contexts/LanguageContext';
+import { translations } from '../translations';
 
 interface TimelineNode {
   id: string;
@@ -50,7 +51,7 @@ const TimelineItem: React.FC<{ node: TimelineNode }> = ({ node }) => {
 
         {/* Lista de períodos e descrições, com linha separadora entre itens */}
         <div className="flex flex-col">
-          {Array.isArray(node.items) ? node.items.map((item, index) => (
+          {node.items && Array.isArray(node.items) ? node.items.map((item, index) => (
             <div key={index} className="flex flex-col items-start">
               <div className="w-full">
                 {item.period && (
@@ -61,6 +62,7 @@ const TimelineItem: React.FC<{ node: TimelineNode }> = ({ node }) => {
                     {item.period}
                   </span>
                 )}
+        
                 <p
                   className="text-sm sm:text-base mt-1"
                   style={{ color: themeColors.text }}
@@ -75,60 +77,51 @@ const TimelineItem: React.FC<{ node: TimelineNode }> = ({ node }) => {
                 ></div>
               )}
             </div>
-          )) : null}
+          )) : (
+            <p>Nenhum item encontrado</p>
+          )}
         </div>
       </motion.div>
     </div>
   );
 };
-
 export const Roadmap: React.FC = () => {
   const { themeColors } = useTheme();
-  const { t } = useLanguage();
+  const { language } = useLanguage();
 
   const nodes = useMemo(
-    () => [
-      {
-        id: t('career.education'),
-        title: t('career.education'),
-        items: t('career.education.items'),
-      },
-      {
-        id: 'career.experience',
-        title: t('career.experience'),
-        items: t('career.experience.items'),
-      },
-      {
-        id: 'career.learning_growth',
-        title: t('career.learning_growth'),
-        items: t('career.learning_growth.items'),
-      },
-      {
-        id: 'currently',
-        title: t('career.currently'),
-        items: t('career.currently.items'),
-      },
-    ],
-    [t]
+    () => {
+      const currentTranslations = translations[language as keyof typeof translations];
+
+      return [
+        {
+          id: currentTranslations['career.education'] as string,
+          title: currentTranslations['career.education'] as string,
+          items: currentTranslations['career.education.items'] as any[],
+        },
+        {
+          id: currentTranslations['career.experience'] as string,
+          title: currentTranslations['career.experience'] as string,
+          items: currentTranslations['career.experience.items'] as any[],
+        },
+        {
+          id: currentTranslations['career.learning_growth'] as string,
+          title: currentTranslations['career.learning_growth'] as string,
+          items: currentTranslations['career.learning_growth.items'] as any[],
+        },
+      ];
+    },
+    [language]
   );
 
   return (
     <div className="py-8 sm:py-16 relative" id="jornada">
-      {/* Container da timeline */}
       <div className="relative container mx-auto px-2">
-        {/* Linha vertical principal - visível apenas em telas médias e maiores */}
         <div
           className={`absolute top-0 bottom-0 left-4 xs:left-0 md:left-[50%] w-1 hidden md:block`}
           style={{
             backgroundColor: themeColors.accent,
             marginLeft: '-2px',
-          }}
-        />
-        {/* Mobile Timeline - visível apenas em telas pequenas */}
-        <div
-          className={`absolute hidden sm:hidden top-0 bottom-0 left-4 w-1 block md:hidden`}
-          style={{
-            backgroundColor: themeColors.accent,
           }}
         />
         <div className="space-y-8 sm:space-y-12">

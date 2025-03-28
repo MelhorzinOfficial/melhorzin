@@ -23,7 +23,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   }, [language]);
 
   const t = (key: TranslationKey): string => {
-    const translation = translations[language][key];
+    const translation = (translations[language] as Record<TranslationKey, string | { description: string }[]>)[key];
     if (typeof translation === 'string') {
       return translation;
     } else if (Array.isArray(translation)) {
