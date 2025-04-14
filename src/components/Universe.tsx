@@ -165,6 +165,15 @@ const portfolios = shuffleArray([
     orbitRadius: 740,
     orbitSpeed: 0.006,
   },
+  {
+    id: 16,
+    name: "Renata R. Silva",
+    subdomain: "maki",
+    description: "Claramente uma melhorzinha",
+    color: "#7000cc",
+    orbitRadius: 740,
+    orbitSpeed: 0.006,
+  },
 ]).map((portfolio, index) => ({
   ...portfolio,
   size: getRandomSize(),
