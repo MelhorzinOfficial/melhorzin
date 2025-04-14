@@ -1,11 +1,14 @@
 "use client";
 
 import { Canvas, useThree } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Stars, useHelper } from "@react-three/drei";
 import { Sun } from "./Sun";
 import { Planet } from "./Planet";
 import * as THREE from "three";
 import { useMemo, useRef, useState, useEffect } from "react";
+import { PlanetSidebar } from "./PlanetSidebar";
+import { Button } from "@/components/ui/button";
+import { X, List } from "lucide-react";
 
 function shuffleArray<T>(array: T[]): T[] {
   return array.sort(() => Math.random() - 0.5);
@@ -143,7 +146,7 @@ const portfolios = shuffleArray([
     color: "#7000cc",
     orbitRadius: 740,
     orbitSpeed: 0.006,
-  }, 
+  },
   {
     id: 14,
     name: "Saron Lujan",
@@ -169,6 +172,51 @@ const portfolios = shuffleArray([
   orbitSpeed: 0.05 - index * 0.003,
 }));
 
+// Componente para criar órbitas visíveis
+function Orbit({ radius, color }: { radius: number; color: string }) {
+  const points = useMemo(() => {
+    const pts = [];
+    for (let i = 0; i <= 64; i++) {
+      const angle = (i / 64) * Math.PI * 2;
+      pts.push(new THREE.Vector3(Math.sin(angle) * radius, 0, Math.cos(angle) * radius));
+    }
+    return pts;
+  }, [radius]);
+
+  return (
+    <line>
+      <bufferGeometry>
+        <bufferAttribute attach="attributes-position" count={points.length} array={new Float32Array(points.flatMap((p) => [p.x, p.y, p.z]))} itemSize={3} />
+      </bufferGeometry>
+      <lineBasicMaterial color={color} transparent opacity={0.2} />
+    </line>
+  );
+}
+
+// Componente para criar nebulosas
+function Nebula({ position, color, size }: { position: [number, number, number]; color: string; size: number }) {
+  const points = useMemo(() => {
+    const pts = [];
+    const count = 100;
+    for (let i = 0; i < count; i++) {
+      const x = (Math.random() - 0.5) * size;
+      const y = (Math.random() - 0.5) * size;
+      const z = (Math.random() - 0.5) * size;
+      pts.push(new THREE.Vector3(x, y, z));
+    }
+    return pts;
+  }, [size]);
+
+  return (
+    <points position={position}>
+      <bufferGeometry>
+        <bufferAttribute attach="attributes-position" count={points.length} array={new Float32Array(points.flatMap((p) => [p.x, p.y, p.z]))} itemSize={3} />
+      </bufferGeometry>
+      <pointsMaterial color={color} size={0.5} transparent opacity={0.3} />
+    </points>
+  );
+}
+
 function BackgroundStars() {
   const { scene } = useThree();
   const starsRef = useRef<THREE.Points>(null!);
@@ -177,10 +225,10 @@ function BackgroundStars() {
     const geometry = new THREE.BufferGeometry();
     const vertices = [];
 
-    for (let i = 0; i < 5000; i++) {
-      const x = (Math.random() - 0.5) * 1000;
-      const y = (Math.random() - 0.5) * 1000;
-      const z = (Math.random() - 0.5) * 1000;
+    for (let i = 0; i < 10000; i++) {
+      const x = (Math.random() - 0.5) * 2000;
+      const y = (Math.random() - 0.5) * 2000;
+      const z = (Math.random() - 0.5) * 2000;
       vertices.push(x, y, z);
     }
 
@@ -206,49 +254,156 @@ interface CameraControllerProps {
 function CameraController({ focusTarget, portfolios }: CameraControllerProps) {
   const { camera, scene } = useThree();
   const controlsRef = useRef<any>(null);
+  const animationFrameRef = useRef<number | null>(null);
+  const isFollowingRef = useRef<boolean>(false);
 
+  // Limpar animação quando o componente for desmontado
+  useEffect(() => {
+    return () => {
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
+  }, []);
+
+  // Efeito de foco no planeta
   useEffect(() => {
     if (focusTarget !== null) {
-      const planetMesh = scene.getObjectByName(`planet-${focusTarget}`);
-      if (planetMesh && controlsRef.current) {
-        const position = new THREE.Vector3();
-        planetMesh.getWorldPosition(position);
+      isFollowingRef.current = true;
 
-        const portfolio = portfolios.find((p) => p.id === focusTarget);
-        if (portfolio) {
-          const distance = portfolio.size * 8;
-          position.x += distance;
-          position.y += distance / 2;
-
-          controlsRef.current.target.copy(position);
-          camera.position.lerp(new THREE.Vector3(position.x + distance, position.y + distance, position.z + distance), 0.1);
-          controlsRef.current.update();
+      // Função para animar a câmera seguindo o planeta
+      const followPlanet = () => {
+        if (!isFollowingRef.current || !controlsRef.current) {
+          return;
         }
+
+        const planetMesh = scene.getObjectByName(`planet-${focusTarget}`);
+        if (planetMesh) {
+          const portfolio = portfolios.find((p) => p.id === focusTarget);
+          if (portfolio) {
+            // Obter a posição atual do planeta
+            const planetPosition = new THREE.Vector3();
+            planetMesh.getWorldPosition(planetPosition);
+
+            // Calcular a distância de visualização baseada no tamanho do planeta
+            const distance = portfolio.size * 3;
+
+            // Configurar o alvo dos controles para a posição do planeta
+            controlsRef.current.target.copy(planetPosition);
+
+            // Mover a câmera para uma posição ligeiramente afastada e acima do planeta
+            const cameraTargetPosition = new THREE.Vector3(planetPosition.x + distance * 0.8, planetPosition.y + distance * 0.4, planetPosition.z + distance * 0.8);
+
+            // Suavemente interpolamos a posição da câmera
+            camera.position.lerp(cameraTargetPosition, 0.05);
+
+            // Atualizar os controles
+            controlsRef.current.update();
+          }
+        }
+
+        // Continuar o loop de animação
+        animationFrameRef.current = requestAnimationFrame(followPlanet);
+      };
+
+      // Iniciar o loop de animação
+      followPlanet();
+    } else {
+      // Parar de seguir quando não há planeta selecionado
+      isFollowingRef.current = false;
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current);
+        animationFrameRef.current = null;
       }
     }
+
+    return () => {
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
   }, [focusTarget, camera, scene, portfolios]);
 
-  return <OrbitControls ref={controlsRef} enableZoom={true} enablePan={true} enableRotate={true} minDistance={20} maxDistance={500} />;
+  // Configuração inicial do controle da câmera
+  useEffect(() => {
+    if (controlsRef.current) {
+      controlsRef.current.rotateSpeed = 0.5;
+      controlsRef.current.zoomSpeed = 0.7;
+      controlsRef.current.minDistance = 15;
+      controlsRef.current.maxDistance = 500;
+      controlsRef.current.enableDamping = true;
+      controlsRef.current.dampingFactor = 0.1;
+    }
+  }, []);
+
+  return <OrbitControls ref={controlsRef} enableZoom={true} enablePan={true} enableRotate={true} minDistance={15} maxDistance={500} rotateSpeed={0.5} zoomSpeed={0.7} enableDamping={true} dampingFactor={0.1} />;
 }
 
 export default function Universe() {
   const [focusPlanetId, setFocusPlanetId] = useState<number | null>(null);
+  const [showSidebar, setShowSidebar] = useState(true);
+
+  const handleFocusPlanet = (id: number) => {
+    setFocusPlanetId(id);
+  };
 
   return (
-    <div className="flex h-screen w-screen bg-black overflow-hidden">
+    <div className="flex h-screen w-screen bg-black overflow-hidden relative">
+      {/* Sidebar com lista de planetas */}
+      <PlanetSidebar portfolios={portfolios} onSelectPlanet={handleFocusPlanet} isOpen={showSidebar} onToggleOpen={() => setShowSidebar(!showSidebar)} />
+
+      {/* Botão para abrir/fechar a sidebar */}
+      <Button variant="outline" size="icon" className={`fixed top-4 ${showSidebar ? "left-[320px]" : "left-4"} z-50 bg-black/80 border border-white/20 transition-all duration-300`} onClick={() => setShowSidebar(!showSidebar)}>
+        {showSidebar ? <X className="h-5 w-5" /> : <List className="h-5 w-5" />}
+      </Button>
+
+      {/* Indicação do planeta em foco */}
+      {focusPlanetId !== null && (
+        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 bg-black/80 text-white px-4 py-2 rounded-full border border-white/20 flex items-center gap-2">
+          <div
+            className="w-3 h-3 rounded-full"
+            style={{
+              backgroundColor: portfolios.find((p) => p.id === focusPlanetId)?.color || "#FFFFFF",
+            }}
+          />
+          <span className="text-sm">Em órbita: {portfolios.find((p) => p.id === focusPlanetId)?.name || "Planeta"}</span>
+          <Button variant="ghost" size="icon" className="h-6 w-6 p-0 ml-2 hover:bg-white/10" onClick={() => setFocusPlanetId(null)}>
+            <X className="h-3 w-3" />
+          </Button>
+        </div>
+      )}
+
       <div className="flex-1">
         <Canvas
-          camera={{ position: [0, 40, 100], fov: 60 }} // Ajustei posição inicial da câmera
-          gl={{ antialias: true }} // Adicionei antialiasing
+          camera={{ position: [0, 40, 100], fov: 60 }}
+          gl={{ antialias: true }}
+          dpr={[1, 2]} // Melhor performance em dispositivos de alta densidade
+          performance={{ min: 0.5 }} // Ajuste de performance
         >
           <color attach="background" args={["#000000"]} />
-          <ambientLight intensity={0.2} /> // Aumentei ligeiramente a luz ambiente
-          <pointLight position={[0, 0, 0]} intensity={1.5} /> // Centralizei a luz no sol
+          <ambientLight intensity={0.2} />
+          <pointLight position={[0, 0, 0]} intensity={1.5} />
+
+          {/* Estrelas de fundo */}
+          <Stars radius={300} depth={60} count={20000} factor={7} saturation={0} fade speed={1} />
           <BackgroundStars />
+
+          {/* Nebulosas coloridas */}
+          <Nebula position={[-200, -100, -300]} color="#ff3366" size={200} />
+          <Nebula position={[300, 150, -200]} color="#3366ff" size={250} />
+          <Nebula position={[-150, 200, 100]} color="#33ff66" size={180} />
+
+          {/* Sol central */}
           <Sun />
+
+          {/* Planetas e órbitas */}
           {portfolios.map((portfolio) => (
-            <Planet key={portfolio.id} id={portfolio.id} name={portfolio.name} subdomain={portfolio.subdomain} description={portfolio.description} color={portfolio.color} size={portfolio.size} orbitRadius={portfolio.orbitRadius} orbitSpeed={portfolio.orbitSpeed} initialRotation={Math.random() * Math.PI * 2} />
+            <group key={portfolio.id}>
+              <Orbit radius={portfolio.orbitRadius} color={portfolio.color} />
+              <Planet id={portfolio.id} name={portfolio.name} subdomain={portfolio.subdomain} description={portfolio.description} color={portfolio.color} size={portfolio.size} orbitRadius={portfolio.orbitRadius} orbitSpeed={portfolio.orbitSpeed} initialRotation={Math.random() * Math.PI * 2} onFocusPlanet={handleFocusPlanet} />
+            </group>
           ))}
+
           <CameraController focusTarget={focusPlanetId} portfolios={portfolios} />
         </Canvas>
       </div>
