@@ -186,7 +186,7 @@ function Orbit({ radius, color }: { radius: number; color: string }) {
   return (
     <line>
       <bufferGeometry>
-        <bufferAttribute attach="attributes-position" count={points.length} array={new Float32Array(points.flatMap((p) => [p.x, p.y, p.z]))} itemSize={3} />
+        <bufferAttribute args={[new Float32Array(points.flatMap((p) => [p.x, p.y, p.z])), 3]} attach="attributes-position" count={points.length} />
       </bufferGeometry>
       <lineBasicMaterial color={color} transparent opacity={0.2} />
     </line>
@@ -210,7 +210,7 @@ function Nebula({ position, color, size }: { position: [number, number, number];
   return (
     <points position={position}>
       <bufferGeometry>
-        <bufferAttribute attach="attributes-position" count={points.length} array={new Float32Array(points.flatMap((p) => [p.x, p.y, p.z]))} itemSize={3} />
+        <bufferAttribute args={[new Float32Array(points.flatMap((p) => [p.x, p.y, p.z])), 3]} attach="attributes-position" count={points.length} />
       </bufferGeometry>
       <pointsMaterial color={color} size={0.5} transparent opacity={0.3} />
     </points>
