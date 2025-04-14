@@ -25,14 +25,50 @@ export function Planet({ id, name, subdomain, description, color, size, orbitRad
   const [hovered, setHovered] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
   const [previewUrl, setPreviewUrl] = useState("");
+  const [previewLoading, setPreviewLoading] = useState(true);
+  const [previewError, setPreviewError] = useState(false);
 
   // Gerar uma imagem de preview do site
   useEffect(() => {
-    // Removendo # do início para usar em URLs
+    // Inicialmente define um placeholder
     const colorCode = color.replace("#", "");
     const contrastColor = isLightColor(color) ? "000000" : "FFFFFF";
-    setPreviewUrl(`https://placehold.co/800x600/${colorCode}/${contrastColor}?text=${name.replace(/ /g, "+")}`);
-  }, [color, name]);
+    const placeholderUrl = `https://placehold.co/800x600/${colorCode}/${contrastColor}?text=Carregando...`;
+    setPreviewUrl(placeholderUrl);
+
+    // Tenta carregar um screenshot real do site
+    const fetchScreenshot = async () => {
+      try {
+        // Usar um serviço de captura de tela
+        const screenshotUrl = `https://api.apiflash.com/v1/urltoimage?access_key=38a824c737db490ca0853318356f603f&url=https://${subdomain}.melhorzin.com&format=jpeg&quality=70&width=800&height=600`;
+
+        // Verificar se a imagem carrega corretamente
+        const img = new Image();
+        img.onload = () => {
+          setPreviewUrl(screenshotUrl);
+          setPreviewLoading(false);
+        };
+
+        img.onerror = () => {
+          // Fallback para o placeholder se o screenshot falhar
+          const fallbackUrl = `https://placehold.co/800x600/${colorCode}/${contrastColor}?text=${name.replace(/ /g, "+")}`;
+          setPreviewUrl(fallbackUrl);
+          setPreviewLoading(false);
+          setPreviewError(true);
+        };
+
+        img.src = screenshotUrl;
+      } catch (error) {
+        // Fallback para o placeholder em caso de erro
+        const fallbackUrl = `https://placehold.co/800x600/${colorCode}/${contrastColor}?text=${name.replace(/ /g, "+")}`;
+        setPreviewUrl(fallbackUrl);
+        setPreviewLoading(false);
+        setPreviewError(true);
+      }
+    };
+
+    fetchScreenshot();
+  }, [color, name, subdomain]);
 
   // Determinar se uma cor é clara para escolher o texto contrastante
   const isLightColor = (hexColor: string) => {
@@ -114,8 +150,19 @@ export function Planet({ id, name, subdomain, description, color, size, orbitRad
             </div>
 
             <div className="flex-1 overflow-hidden rounded-lg border border-white/10 mb-4 flex flex-col">
-              <div className="h-[350px] w-full bg-gray-900 flex items-center justify-center p-4 overflow-hidden">
+              <div className="h-[350px] w-full bg-gray-900 flex items-center justify-center p-4 overflow-hidden relative">
+                {/* Indicador de carregamento */}
+                {previewLoading && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/50 z-10">
+                    <div className="w-8 h-8 border-3 border-white border-t-transparent rounded-full animate-spin"></div>
+                  </div>
+                )}
+
+                {/* Imagem de preview */}
                 <img src={previewUrl} alt={`Preview de ${name}`} className="max-w-full max-h-full object-contain rounded-md" />
+
+                {/* Indicador de erro (opcional) */}
+                {previewError && <div className="absolute bottom-4 right-4 bg-black/70 text-xs text-white/70 px-2 py-1 rounded">Preview não disponível</div>}
               </div>
 
               <div className="flex-1 p-4 bg-black/70">
