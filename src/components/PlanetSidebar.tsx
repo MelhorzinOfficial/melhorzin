@@ -28,15 +28,85 @@ interface PlanetSidebarProps {
 export function PlanetSidebar({ portfolios, onSelectPlanet, isOpen, onToggleOpen }: PlanetSidebarProps) {
   const [selectedPlanet, setSelectedPlanet] = useState<number | null>(null);
   const [previewUrls, setPreviewUrls] = useState<{ [key: number]: string }>({});
+  const [loadingPreviews, setLoadingPreviews] = useState<{ [key: number]: boolean }>({});
+  const [previewError, setPreviewError] = useState<{ [key: number]: boolean }>({});
 
-  // Usar imagens de placeholder para mostrar os sites
+  // Carregar previews reais dos sites
   useEffect(() => {
-    // Mock de imagens de preview para os sites
-    const mockPreviews: { [key: number]: string } = {};
+    const initialLoadingState: { [key: number]: boolean } = {};
+    const initialErrorState: { [key: number]: boolean } = {};
+
     portfolios.forEach((portfolio) => {
-      mockPreviews[portfolio.id] = `https://placehold.co/600x400/${portfolio.color.replace("#", "")}/${portfolio.color === "#FFFFFF" ? "000000" : "FFFFFF"}?text=${portfolio.name.replace(/ /g, "+")}`;
+      initialLoadingState[portfolio.id] = true;
+      initialErrorState[portfolio.id] = false;
     });
-    setPreviewUrls(mockPreviews);
+
+    setLoadingPreviews(initialLoadingState);
+    setPreviewError(initialErrorState);
+
+    // Criar URLs para screenshots dos sites
+    const fetchPreviews = async () => {
+      const previews: { [key: number]: string } = {};
+
+      for (const portfolio of portfolios) {
+        try {
+          // Tente carregar um screenshot do site usando um serviço de captura de tela
+          // Aqui usamos o serviço PageScreenshot.com (gratuito para demonstração)
+          const screenshotUrl = `https://api.apiflash.com/v1/urltoimage?access_key=38a824c737db490ca0853318356f603f&url=https://${portfolio.subdomain}.melhorzin.com&format=jpeg&quality=70&width=600&height=400`;
+
+          // Verificar se a imagem carrega corretamente
+          const img = new Image();
+          img.onload = () => {
+            setPreviewUrls((prev) => ({
+              ...prev,
+              [portfolio.id]: screenshotUrl,
+            }));
+            setLoadingPreviews((prev) => ({
+              ...prev,
+              [portfolio.id]: false,
+            }));
+          };
+
+          img.onerror = () => {
+            // Fallback para o placeholder se o screenshot falhar
+            const fallbackUrl = `https://placehold.co/600x400/${portfolio.color.replace("#", "")}/${portfolio.color === "#FFFFFF" ? "000000" : "FFFFFF"}?text=${portfolio.name.replace(/ /g, "+")}`;
+            setPreviewUrls((prev) => ({
+              ...prev,
+              [portfolio.id]: fallbackUrl,
+            }));
+            setLoadingPreviews((prev) => ({
+              ...prev,
+              [portfolio.id]: false,
+            }));
+            setPreviewError((prev) => ({
+              ...prev,
+              [portfolio.id]: true,
+            }));
+          };
+
+          img.src = screenshotUrl;
+
+          // Inicialmente, defina o URL como o placeholder
+          previews[portfolio.id] = `https://placehold.co/600x400/${portfolio.color.replace("#", "")}/${portfolio.color === "#FFFFFF" ? "000000" : "FFFFFF"}?text=Carregando...`;
+        } catch (error) {
+          // Fallback para o placeholder em caso de erro
+          previews[portfolio.id] = `https://placehold.co/600x400/${portfolio.color.replace("#", "")}/${portfolio.color === "#FFFFFF" ? "000000" : "FFFFFF"}?text=${portfolio.name.replace(/ /g, "+")}`;
+          setLoadingPreviews((prev) => ({
+            ...prev,
+            [portfolio.id]: false,
+          }));
+          setPreviewError((prev) => ({
+            ...prev,
+            [portfolio.id]: true,
+          }));
+        }
+      }
+
+      // Definir os URLs iniciais (placeholders)
+      setPreviewUrls(previews);
+    };
+
+    fetchPreviews();
   }, [portfolios]);
 
   // Função para abrir o site quando clicar no botão
@@ -53,7 +123,7 @@ export function PlanetSidebar({ portfolios, onSelectPlanet, isOpen, onToggleOpen
   };
 
   return (
-    <div className={cn("h-full bg-black/80 text-white backdrop-blur-lg transition-all duration-300 border-r border-white/10 relative", isOpen ? "w-80" : "w-0")}>
+    <div className={cn("h-full bg-black/80 text-white backdrop-blur-lg transition-all duration-300 border-r border-white/10 relative", isOpen ? "w-96" : "w-0")}>
       {/* Botão para expandir quando a barra estiver recolhida */}
       {!isOpen && (
         <Button variant="outline" size="icon" className="absolute -right-10 top-4 bg-black/80 border border-white/20" onClick={onToggleOpen}>
@@ -83,15 +153,22 @@ export function PlanetSidebar({ portfolios, onSelectPlanet, isOpen, onToggleOpen
                       </div>
                     </div>
 
-                    {/* Preview do site - usando imagem de fallback */}
+                    {/* Preview do site - agora com screenshot real ou fallback */}
                     <div className="w-full h-32 mb-3 overflow-hidden rounded-md bg-gray-800 relative border border-white/10">
-                      {/* Fundo colorido */}
-                      <div className="w-full h-full absolute inset-0" style={{ backgroundColor: portfolio.color, opacity: 0.2 }} />
+                      {/* Indicador de carregamento */}
+                      {loadingPreviews[portfolio.id] && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/50 z-10">
+                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        </div>
+                      )}
 
-                      {/* Imagem de fallback para o preview */}
-                      <div className="w-full h-full flex items-center justify-center text-center p-2">
+                      {/* Imagem de preview */}
+                      <div className="w-full h-full flex items-center justify-center text-center p-0">
                         <img src={previewUrls[portfolio.id]} alt={`Preview de ${portfolio.name}`} className="w-full h-full object-cover" />
                       </div>
+
+                      {/* Indicador de erro (opcional) */}
+                      {previewError[portfolio.id] && <div className="absolute bottom-0 right-0 bg-black/70 text-xs text-white/70 px-1.5 py-0.5 rounded-tl">Preview não disponível</div>}
                     </div>
 
                     <CardDescription className="text-xs text-white/70 mb-3 line-clamp-2">{portfolio.description}</CardDescription>
