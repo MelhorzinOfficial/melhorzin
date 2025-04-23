@@ -8,6 +8,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Send } from "lucide-react";
+import { toast } from "@/components/ui/use-toast";
+import { CheckCircle } from "lucide-react";
 
 export function ContactForm() {
   const [formState, setFormState] = useState({
@@ -81,6 +83,22 @@ export function ContactForm() {
           </span>
         )}
       </Button>
+
+      {isSubmitted && (
+        <div className="absolute inset-0 flex items-center justify-center bg-background/80 backdrop-blur-sm">
+          <div className="rounded-lg bg-green-100 p-6 shadow-lg dark:bg-green-900">
+            <CheckCircle className="mx-auto mb-4 h-12 w-12 text-green-500 dark:text-green-400" />
+            <h3 className="mb-2 text-center text-xl font-bold">Mensagem Enviada!</h3>
+            <p className="text-center">Obrigado por entrar em contato. Retornarei em breve pelo email fornecido.</p>
+            <p className="mt-4 text-center text-sm text-gray-500 dark:text-gray-400">
+              Se preferir, você também pode me contatar diretamente em{" "}
+              <a href="mailto:gabriel.henrique7@hotmail.com" className="font-medium text-green-600 hover:underline dark:text-green-400">
+                gabriel.henrique7@hotmail.com
+              </a>
+            </p>
+          </div>
+        </div>
+      )}
     </form>
   );
 }
