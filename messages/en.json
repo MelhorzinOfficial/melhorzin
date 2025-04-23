@@ -1,28 +1,28 @@
 {
   "HomePage": {
-    "title": "Homepage",
+    "title": "Home Page",
     "aboutSection": {
       "heading": "About Me",
-      "description1": "I'm a passionate developer with a love for creating beautiful, functional websites and applications. Just like the vast universe, my curiosity is endless and I'm always exploring new technologies and techniques.",
-      "description2": "With expertise in modern web technologies, I craft digital experiences that are both visually stunning and highly performant.",
+      "description1": "I'm a developer passionate about creating beautiful and functional websites and applications. Like the vast universe, my curiosity is boundless, and I'm always exploring new technologies and techniques.",
+      "description2": "With expertise in modern web technologies, I create visually impactful and high-performance digital experiences.",
       "button": "Learn more"
     },
     "projectsSection": {
       "heading": "Projects",
       "project1": "Cosmic Dashboard",
-      "project1Desc": "A beautiful analytics dashboard with space-themed visualizations",
+      "project1Desc": "A beautiful analytics dashboard with space-inspired visualizations",
       "project2": "Nebula Social",
-      "project2Desc": "Social media platform with a unique space-inspired interface",
+      "project2Desc": "Social media platform with a unique universe-inspired interface",
       "project3": "Orbit CMS",
-      "project3Desc": "Content management system with a revolutionary UX design"
+      "project3Desc": "Content management system with a revolutionary experience"
     },
     "skillsSection": {
       "heading": "Skills"
     },
     "contactSection": {
       "heading": "Contact",
-      "subheading": "Get In Touch",
-      "description": "Have a project in mind or just want to say hello? Feel free to reach out!"
+      "subheading": "Get in Touch",
+      "description": "Have a project in mind or just want to say hi? Feel free to reach out!"
     },
     "footer": {
       "copyright": "© {year} Space Portfolio. All rights reserved."
@@ -30,12 +30,25 @@
   },
   "HeroSection": {
     "title": "Welcome to My Space Portfolio",
-    "subtitle": "Exploring the digital universe with creative web development and design. Building stellar experiences that are out of this world.",
+    "subtitle": "Exploring the digital universe with creative Web development and design. Building stellar experiences that are out of this world.",
     "button": "Discover More"
   },
+  "ProjectsSection": {
+    "title": "My GitHub Projects",
+    "description": "Check out my open-source projects and personal work on GitHub.",
+    "viewAll": "View all projects",
+    "viewAllExternal": "View on GitHub",
+    "noProjectsTitle": "No projects found",
+    "noProjectsDescription": "It seems there are no projects available at the moment. Please try again later.",
+    "errorTitle": "Error loading projects",
+    "tryAgain": "Try again",
+    "noDescription": "No description available",
+    "showAll": "Show all projects",
+    "showLess": "Show less"
+  },
   "theme": {
-    "dark": "Dark Mode",
-    "light": "Light Mode",
-    "system": "System Default"
+    "dark": "Dark mode",
+    "light": "Light mode",
+    "system": "System default"
   }
 }
