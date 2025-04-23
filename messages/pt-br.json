@@ -33,6 +33,19 @@
     "subtitle": "Explorando o universo digital com desenvolvimento e design criativos da Web. Construindo experiências estelares que estão fora deste mundo.",
     "button": "Descubra Mais"
   },
+  "ProjectsSection": {
+    "title": "Meus Projetos no GitHub",
+    "description": "Confira meus projetos de código aberto e trabalhos pessoais no GitHub.",
+    "viewAll": "Ver todos os projetos",
+    "viewAllExternal": "Ver no GitHub",
+    "noProjectsTitle": "Nenhum projeto encontrado",
+    "noProjectsDescription": "Parece que não há projetos disponíveis no momento. Tente novamente mais tarde.",
+    "errorTitle": "Erro ao carregar projetos",
+    "tryAgain": "Tentar novamente",
+    "noDescription": "Sem descrição disponível",
+    "showAll": "Mostrar todos os projetos",
+    "showLess": "Mostrar menos"
+  },
   "theme": {
     "dark": "Modo escuro",
     "light": "Modo de luz",
