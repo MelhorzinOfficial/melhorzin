@@ -1,15 +1,17 @@
 import { SpaceBackground } from "@/components/background/space-background";
 import { ProjectCard } from "@/components/card/project-card";
 import { ContactForm } from "@/components/form/contact-form";
+import { GithubProjects } from "@/components/github/github-projects";
 import { HeroSection } from "@/components/section/hero-section";
 import { SkillsSection } from "@/components/section/skills-section";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Badge, ChevronRight, Mail, Github, Link, Linkedin } from "lucide-react";
+import { Badge, ChevronRight, Mail, Github, Link, Linkedin, User, Briefcase, WrenchIcon, PhoneCall } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 export default function Home() {
   const t = useTranslations("HomePage");
+  const projectsT = useTranslations("ProjectsSection");
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-black text-white">
@@ -19,10 +21,18 @@ export default function Home() {
         <HeroSection />
 
         <section id="about" className="my-20 scroll-mt-20">
-          <h2 className="mb-6 text-3xl font-bold tracking-tight">
-            <Badge className="mr-2 bg-purple-900/20 text-purple-300">01</Badge>
-            {t("aboutSection.heading")}
-          </h2>
+          <div className="mb-10 flex items-center">
+            <div className="relative mr-4 flex h-14 w-14 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-purple-600 to-purple-900 shadow-lg shadow-purple-900/20">
+              <User className="h-7 w-7 text-white" />
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/40 to-purple-900/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+            </div>
+            <div>
+              <span className="block text-sm font-medium uppercase tracking-wider text-purple-400">01</span>
+              <h2 className="text-3xl font-bold tracking-tight text-white">{t("aboutSection.heading")}</h2>
+            </div>
+            <div className="ml-auto h-px flex-grow bg-gradient-to-r from-purple-800 to-transparent"></div>
+          </div>
+
           <Card className="border-purple-800/30 bg-black/40 p-6 backdrop-blur-md">
             <p className="mb-4 text-lg text-gray-300">{t("aboutSection.description1")}</p>
             <p className="text-lg text-gray-300">{t("aboutSection.description2")}</p>
@@ -35,24 +45,45 @@ export default function Home() {
         </section>
 
         <section id="projects" className="my-20 scroll-mt-20">
-          <h2 className="mb-6 text-3xl font-bold tracking-tight">
-            <Badge className="mr-2 bg-blue-900/20 text-blue-300">02</Badge>
-            {t("projectsSection.heading")}
-          </h2>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <ProjectCard title={t("projectsSection.project1")} description={t("projectsSection.project1Desc")} image="/placeholder.svg?height=200&width=400" tags={["React", "TypeScript", "D3.js"]} />
-            <ProjectCard title={t("projectsSection.project2")} description={t("projectsSection.project2Desc")} image="/placeholder.svg?height=200&width=400" tags={["Next.js", "Prisma", "tRPC"]} />
-            <ProjectCard title={t("projectsSection.project3")} description={t("projectsSection.project3Desc")} image="/placeholder.svg?height=200&width=400" tags={["Vue", "Node.js", "MongoDB"]} />
+          <div className="mb-10 flex items-center">
+            <div className="relative mr-4 flex h-14 w-14 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-blue-600 to-blue-900 shadow-lg shadow-blue-900/20">
+              <Briefcase className="h-7 w-7 text-white" />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/40 to-blue-900/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+            </div>
+            <div>
+              <span className="block text-sm font-medium uppercase tracking-wider text-blue-400">02</span>
+              <h2 className="text-3xl font-bold tracking-tight text-white">{t("projectsSection.heading")}</h2>
+            </div>
+            <div className="ml-auto h-px flex-grow bg-gradient-to-r from-blue-800 to-transparent"></div>
+          </div>
+
+          <GithubProjects username="raposoG" limit={6} />
+
+          <div className="mt-8 flex justify-center">
+            <Button variant="outline" size="lg" className="border-blue-500 bg-blue-900/20 px-6 text-blue-300 hover:bg-blue-900/40 hover:text-blue-100" asChild>
+              <a href="https://github.com/raposoG?tab=repositories" target="_blank" rel="noopener noreferrer">
+                <Github className="mr-2 h-5 w-5" />
+                {projectsT("viewAllExternal")}
+              </a>
+            </Button>
           </div>
         </section>
 
         <SkillsSection />
 
         <section id="contact" className="my-20 scroll-mt-20">
-          <h2 className="mb-6 text-3xl font-bold tracking-tight">
-            <Badge className="mr-2 bg-green-900/20 text-green-300">04</Badge>
-            {t("contactSection.heading")}
-          </h2>
+          <div className="mb-10 flex items-center">
+            <div className="relative mr-4 flex h-14 w-14 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-green-600 to-green-900 shadow-lg shadow-green-900/20">
+              <PhoneCall className="h-7 w-7 text-white" />
+              <div className="absolute inset-0 bg-gradient-to-br from-green-600/40 to-green-900/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+            </div>
+            <div>
+              <span className="block text-sm font-medium uppercase tracking-wider text-green-400">04</span>
+              <h2 className="text-3xl font-bold tracking-tight text-white">{t("contactSection.heading")}</h2>
+            </div>
+            <div className="ml-auto h-px flex-grow bg-gradient-to-r from-green-800 to-transparent"></div>
+          </div>
+
           <Card className="border-green-800/30 bg-black/40 p-6 backdrop-blur-md">
             <div className="grid gap-10 md:grid-cols-2">
               <div>
@@ -61,19 +92,19 @@ export default function Home() {
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <Mail className="mr-3 h-5 w-5 text-green-400" />
-                    <span>hello@spaceportfolio.com</span>
+                    <span>gabriel.henrique7@hotmail.com</span>
                   </div>
                   <div className="flex items-center">
                     <Github className="mr-3 h-5 w-5 text-green-400" />
-                    <Link href="#" className="hover:text-green-300">
-                      github.com/spacedev
-                    </Link>
+                    <a href="https://github.com/raposoG" target="_blank" rel="noopener noreferrer" className="hover:text-green-300">
+                      github.com/raposoG
+                    </a>
                   </div>
                   <div className="flex items-center">
                     <Linkedin className="mr-3 h-5 w-5 text-green-400" />
-                    <Link href="#" className="hover:text-green-300">
-                      linkedin.com/in/spacedev
-                    </Link>
+                    <a href="https://www.linkedin.com/in/gabrielraposoin/" target="_blank" rel="noopener noreferrer" className="hover:text-green-300">
+                      linkedin.com/in/gabrielraposoin
+                    </a>
                   </div>
                 </div>
               </div>
@@ -87,8 +118,10 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center text-gray-400">
           <p>{t("footer.copyright", { year: new Date().getFullYear() })}</p>
           <div className="mt-4 flex justify-center space-x-4">
-            <Button variant="ghost" size="icon" className="h-8 w-8 text-gray-400 hover:text-white">
-              <Github className="h-5 w-5" />
+            <Button variant="ghost" size="icon" className="h-8 w-8 text-gray-400 hover:text-white" asChild>
+              <a href="https://github.com/raposoG" target="_blank" rel="noopener noreferrer">
+                <Github className="h-5 w-5" />
+              </a>
             </Button>
             <Button variant="ghost" size="icon" className="h-8 w-8 text-gray-400 hover:text-white">
               <Linkedin className="h-5 w-5" />
