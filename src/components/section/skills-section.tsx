@@ -3,9 +3,12 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { Code, Layers, Database, Palette, Cpu, Globe } from "lucide-react";
+import { Code, Layers, Database, Palette, Cpu, Globe, Sparkles } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function SkillsSection() {
+  const t = useTranslations("HomePage");
+
   const skills = [
     {
       category: "Frontend",
@@ -41,12 +44,17 @@ export function SkillsSection() {
 
   return (
     <section id="skills" className="my-20 scroll-mt-20">
-      <h2 className="mb-6 text-3xl font-bold tracking-tight">
-        <Badge variant="outline" className="mr-2 bg-teal-900/20 text-teal-300">
-          03
-        </Badge>
-        Skills        
-      </h2>
+      <div className="mb-10 flex items-center">
+        <div className="relative mr-4 flex h-14 w-14 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-teal-600 to-teal-900 shadow-lg shadow-teal-900/20">
+          <Sparkles className="h-7 w-7 text-white" />
+          <div className="absolute inset-0 bg-gradient-to-br from-teal-600/40 to-teal-900/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+        </div>
+        <div>
+          <span className="block text-sm font-medium uppercase tracking-wider text-teal-400">03</span>
+          <h2 className="text-3xl font-bold tracking-tight text-white">{t("skillsSection.heading")}</h2>
+        </div>
+        <div className="ml-auto h-px flex-grow bg-gradient-to-r from-teal-800 to-transparent"></div>
+      </div>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {skills.map((skill, index) => (
