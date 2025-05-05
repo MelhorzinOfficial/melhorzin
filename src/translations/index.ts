@@ -19,6 +19,7 @@ export const translations = {
     'ProjectPetx.status': 'concluído',
     'projectReservas.title': 'Sistema de Reservas do Resort Southern Paradise',
     'projectReservas.description': 'Sistema de reservas online para um Resort, onde os usuários podem se cadastrar, fazer login, verificar quartos disponíveis, reservar e pagar por estadias.',
+    'projects.title': 'Projetos',
     'skills.title': 'Minhas Habilidades',
     'contact.title': 'Contato',
     'contact.message': 'Estou sempre aberto a novas oportunidades e colaborações. Entre em contato comigo através dos canais abaixo:',
