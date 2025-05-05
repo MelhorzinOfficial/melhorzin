@@ -1,10 +1,10 @@
 // components/CustomChatButton.tsx
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { SocialIcon } from '../components/SocialIcons';
-import EmailModal from '../components/ModalEmail';
+import { SocialIcon } from './SocialIcons';
+import EmailModal from './ModalEmail';
 import { useTheme } from '../contexts/ThemeContext';
-import { FaFileAlt, FaGithub, FaLinkedinIn, FaQuestionCircle } from 'react-icons/fa';
+import { FaEllipsisH, FaFileAlt, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { AiOutlineMail } from 'react-icons/ai';
 
 
@@ -77,12 +77,12 @@ export default function SocialMedias() {
         </AnimatePresence>
 
         <SocialIcon
-          borderColor={border}
+          borderColor={themeColors.border}
           backgroundColor={glassBg}
           onClick={toggleMenu}
           ariaLabel={menuOpen ? 'Fechar menu' : 'Abrir menu'}
         >
-          <FaQuestionCircle  className="w-8 h-8 rounded-full" />
+          <FaEllipsisH  className="w-8 h-8 rounded-full" />
         </SocialIcon>
       </div>
     </>

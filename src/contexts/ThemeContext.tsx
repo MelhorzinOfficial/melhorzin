@@ -28,6 +28,7 @@ interface ThemeColors {
   buttonResume: string;
   scrollBarThumb: string;
   scrollBarTrack: string;
+  footerBackground: string;
 }
 
 export type Theme = 'light' | 'water' | 'dark' | 'fire' | 'earth' | 'air' | 'galactic';
@@ -65,7 +66,8 @@ const themes: Record<Theme, ThemeColors> = {
     separatorItemRoadMap: 'bg-yellow-400',
     buttonResume: '#2196F3',
     scrollBarThumb: "#B0B0B0",
-    scrollBarTrack: "#E0E0E0"
+    scrollBarTrack: "#E0E0E0",
+    footerBackground: '#FAFAFA',
   },
   fire: {
     background: '#2B1B17', // Marrom escuro vulcânico mais suave
@@ -94,7 +96,8 @@ const themes: Record<Theme, ThemeColors> = {
     separatorItemRoadMap: 'bg-amber-400', // Separador âmbar
     buttonResume: '#F9A826', // Botão de currículo âmbar
     scrollBarThumb: "#FF7043",
-    scrollBarTrack: "#2B1B17"
+    scrollBarTrack: "#2B1B17",
+    footerBackground: '#2B1B17',
   },
   galactic: {
     background: '#010B14', // Azul-negro espacial profundo
@@ -123,7 +126,8 @@ const themes: Record<Theme, ThemeColors> = {
     separatorItemRoadMap: 'bg-purple-700', // Separador roxo
     buttonResume: '#7B00FF', // Botão de currículo roxo cósmico
     scrollBarThumb: "#7B00FF",
-    scrollBarTrack: "#010B14"
+    scrollBarTrack: "#010B14",
+    footerBackground: '#010B14',
   },
   earth: {
     background: '#1B3A2F',
@@ -152,7 +156,8 @@ const themes: Record<Theme, ThemeColors> = {
     separatorItemRoadMap: '#2E7D32',
     buttonResume: '#4CAF50',
     scrollBarThumb: "#4CAF50",
-    scrollBarTrack: "#1B3A2F"
+    scrollBarTrack: "#1B3A2F",
+    footerBackground: '#1B3A2F',
   },
   water: {
     background: '#001C30', // Azul marinho profundo como o abismo oceânico
@@ -181,7 +186,8 @@ const themes: Record<Theme, ThemeColors> = {
     separatorItemRoadMap: 'bg-cyan-500', // Separador ciano
     buttonResume: '#0ACDFF', // Botão de currículo azul ciano elétrico
     scrollBarThumb: "#0ACDFF",
-    scrollBarTrack: "#001C30"
+    scrollBarTrack: "#001C30",
+    footerBackground: '#001C30', 
   },
   dark: {
     background: '#111111', // Preto profundo espacial
@@ -210,7 +216,8 @@ const themes: Record<Theme, ThemeColors> = {
     separatorItemRoadMap: 'bg-blue-600', // Separador azul
     buttonResume: '#4D7AFF', // Botão de currículo azul estelar
     scrollBarThumb: "#4D7AFF",
-    scrollBarTrack: "#111111"
+    scrollBarTrack: "#111111",
+    footerBackground: '#111111',
   },
   air: {
     background: '#EDF6F9', // Azul céu muito claro
@@ -239,7 +246,8 @@ const themes: Record<Theme, ThemeColors> = {
     separatorItemRoadMap: '#83C5BE', // Separador verde-água
     buttonResume: '#006D77', // Botão currículo verde-azulado
     scrollBarThumb: "#006D77",
-    scrollBarTrack: "#EDF6F9"
+    scrollBarTrack: "#EDF6F9",
+    footerBackground: '#006D77', 
   },
 };
 

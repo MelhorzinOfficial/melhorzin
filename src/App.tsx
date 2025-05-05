@@ -12,7 +12,7 @@ import { motion } from 'framer-motion';
 import { AboutMe } from './components/AboutMe';
 import { Projects } from './components/Projects';
 import ModalEmail, { } from './components/ModalEmail';
-import CustomChatButton from './components/CustomChatButton';
+import CustomChatButton from './components/SocialMedias';
 
 const containerVariants = {
   hidden: { opacity: 0 },
