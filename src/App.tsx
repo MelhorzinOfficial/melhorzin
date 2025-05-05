@@ -12,7 +12,7 @@ import { motion } from 'framer-motion';
 import { AboutMe } from './components/AboutMe';
 import { Projects } from './components/Projects';
 import ModalEmail, { } from './components/ModalEmail';
-import { SocialMedia } from './components/SocialMedia';
+import CustomChatButton from './components/CustomChatButton';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -90,8 +90,6 @@ function AppContent() {
 
         <Nav activeSection={currentSection} />
         <Settings />
-        <SocialMedia onEmailClick={() => setModalOpen(true)} />
-
         {/* Email */}
         <motion.a>
           <ModalEmail isOpen={modalOpen} onClose={() => setModalOpen(false)} />
@@ -140,6 +138,8 @@ function AppContent() {
               <motion.div id="jornada" variants={itemVariants} className="relative z-10">
                 <Roadmap />
               </motion.div>
+
+              <CustomChatButton />
 
             </motion.main>
           </AnimatedMain>
