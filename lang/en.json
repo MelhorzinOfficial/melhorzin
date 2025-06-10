@@ -1,6 +1,6 @@
 {
-  "Index": {
-    "title": "Welcome to Vue.js"
+  "alert": {
+    "title": "News! Click here to learn more."
   },
   "nav-menu": {
     "contact": "Contact",
