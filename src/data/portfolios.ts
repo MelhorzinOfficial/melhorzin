@@ -223,7 +223,7 @@ export const portfolioData: Portfolio[] = [
     website: {
       url: "https://josemarinho.melhorzin.com",
       technologies: [".NET", "NestJS", "MongoDB", "Redis"],
-      features: ["Microservices Architecture", "Real-time Processing", "Scalable Backends"],
+      features: ["Real-time Processing", "Scalable Backends", "Enterprise Systems"],
     },
   },
 ].map((portfolio, index) => ({
