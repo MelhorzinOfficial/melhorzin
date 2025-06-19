@@ -225,7 +225,7 @@ export const portfolioData: Portfolio[] = [
       technologies: [".NET", "NestJS", "MongoDB", "Redis"],
       features: ["Microservices Architecture", "Real-time Processing", "Scalable Backends"],
     },
-  }
+  },
 ].map((portfolio, index) => ({
   ...portfolio,
   size: Math.random() * (UNIVERSE_CONFIG.planets.maxSize - UNIVERSE_CONFIG.planets.minSize) + UNIVERSE_CONFIG.planets.minSize,
