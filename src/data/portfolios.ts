@@ -213,6 +213,19 @@ export const portfolioData: Portfolio[] = [
       features: ["Creative Animations", "Interactive UI", "3D Elements"],
     },
   },
+  {
+    id: 17,
+    name: "José Marinho",
+    subdomain: "josemarinho",
+    description: "Engenheiro de software especialista em microserviços e sistemas distribuídos.",
+    color: "#FF8C00",
+    visible: true,
+    website: {
+      url: "https://josemarinho.melhorzin.com",
+      technologies: [".NET", "NestJS", "MongoDB", "Redis"],
+      features: ["Microservices Architecture", "Real-time Processing", "Scalable Backends"],
+    },
+  }
 ].map((portfolio, index) => ({
   ...portfolio,
   size: Math.random() * (UNIVERSE_CONFIG.planets.maxSize - UNIVERSE_CONFIG.planets.minSize) + UNIVERSE_CONFIG.planets.minSize,
