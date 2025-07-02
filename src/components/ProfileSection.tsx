@@ -38,7 +38,7 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({ className }) => {
               Olá, eu sou <span className="text-primary">José Marinho!</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-              Sou Engenheiro de Software com ampla experiência em desenvolvimento backend e full-stack. 
+              Sou Engenheiro de Software com ampla experiência em desenvolvimento backend. 
               Especializado em Node.js (NestJS), Java, .NET e Python, foco na criação de aplicações 
               escaláveis e de alto desempenho. Tenho paixão por projetar arquiteturas robustas e 
               otimizar sistemas para máxima eficiência e manutenibilidade.

@@ -71,7 +71,6 @@ const Index = () => {
           <ProfileSection />
           <Timeline />
           <Skills />
-          <Projects />
           
           <section id="contato" className="py-12 md:py-24">
             <div className="container px-4 md:px-6">
