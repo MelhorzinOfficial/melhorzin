@@ -8,9 +8,6 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "engine":{
-    "pnpm": ">=10"
-  },
   "dependencies": {
     "@radix-ui/react-scroll-area": "^1.2.3",
     "@radix-ui/react-slot": "^1.1.2",
