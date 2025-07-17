@@ -1,42 +1,54 @@
 {
   "HomePage": {
-    "title": "Página principal",
+    "title": "Página de Inicio",
     "aboutSection": {
-      "heading": "Sobre mí",
-      "description1": "Soy un desarrollador apasionado por crear sitios webs y aplicaciones bellos y funcionales. Al igual que el vasto universo, mi curiosidad es infinita y siempre estoy explorando nuevas tecnologías y técnicas.",
-      "description2": "Con experiencia en tecnologías web modernas, creo experiencias digitales que son tanto visualmente impactantes como altamente eficientes.",
-      "button": "Más información"
+      "heading": "Sobre Mí",
+      "description1": "Soy Gabriel Henrique, un desarrollador Full Cycle apasionado por transformar ideas en soluciones digitales que impactan vidas. Con un enfoque práctico y creativo, me sumerjo de lleno en cada proyecto, ya sea creando interfaces intuitivas con Nuxt.js, Vue y React, diseñando backends robustos con NestJS y Fastify, o optimizando infraestructuras con Kubernetes y Dokploy. Mi trayectoria en Bjsolutions y en decenas de proyectos freelance me ha enseñado a entregar resultados de alta calidad bajo presión, siempre buscando innovación y eficiencia. Soy un solucionador de problemas incansable, con un ojo agudo para el diseño y el rendimiento, listo para inspirar equipos y llevar proyectos corporativos a nuevos niveles con mi energía y versatilidad.",
+      "button": "Ver Mi Currículum"
     },
     "projectsSection": {
       "heading": "Proyectos",
       "project1": "Panel Cósmico",
-      "project1Desc": "Un hermoso dashboard analítico con visualizaciones de temática espacial",
-      "project2": "Social Nebuloso",
+      "project1Desc": "Un impresionante panel analítico con visualizaciones inspiradas en el espacio",
+      "project2": "Nebulosa Social",
       "project2Desc": "Plataforma de redes sociales con una interfaz única inspirada en el universo",
       "project3": "Orbit CMS",
-      "project3Desc": "Sistema de gestión de contenido con una experiencia de usuario revolucionaria"
+      "project3Desc": "Sistema de gestión de contenidos con una experiencia revolucionaria"
     },
     "skillsSection": {
       "heading": "Habilidades"
     },
     "contactSection": {
       "heading": "Contacto",
-      "subheading": "Ponte en contacto",
-      "description": "¿Tienes un proyecto en mente o solo quieres saludar? ¡No dudes en ponerte en contacto!"
+      "subheading": "Ponte en Contacto",
+      "description": "¿Tienes un proyecto en mente o solo quieres saludar? ¡No dudes en contactarme!"
     },
     "footer": {
       "copyright": "© {year} Space Portfolio. Todos los derechos reservados."
     }
   },
   "HeroSection": {
-    "title": "Bienvenido a Mi Portafolio Espacial",
-    "subtitle": "Explorando el universo digital con desarrollo y diseño web creativo. Construyendo experiencias estelares que están fuera de este mundo.",
-    "button": "Descubrir Más",
-    "contactButton": "Contáctame"
+    "title": "Gabriel Raposo",
+    "subtitle": "Explorando el universo digital con desarrollo web y diseño creativo. Creando experiencias estelares que están fuera de este mundo.",
+    "button": "Descubre Más",
+    "contactButton": "Descargar Currículum"
+  },
+  "ProjectsSection": {
+    "title": "Mis Proyectos en GitHub",
+    "description": "Echa un vistazo a mis proyectos de código abierto y trabajos personales en GitHub.",
+    "viewAll": "Ver todos los proyectos",
+    "viewAllExternal": "Ver en GitHub",
+    "noProjectsTitle": "No se encontraron proyectos",
+    "noProjectsDescription": "Parece que no hay proyectos disponibles en este momento. Intenta de nuevo más tarde.",
+    "errorTitle": "Error al cargar proyectos",
+    "tryAgain": "Intentar de nuevo",
+    "noDescription": "Sin descripción disponible",
+    "showAll": "Mostrar todos los proyectos",
+    "showLess": "Mostrar menos"
   },
   "theme": {
     "dark": "Modo oscuro",
-    "light": "Modo de luz",
-    "system": "Valor predeterminado del sistema"
+    "light": "Modo claro",
+    "system": "Predeterminado del sistema"
   }
 }

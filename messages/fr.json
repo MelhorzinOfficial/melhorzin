@@ -1,42 +1,54 @@
 {
   "HomePage": {
-    "title": "Page d'accueil",
+    "title": "Accueil",
     "aboutSection": {
-      "heading": "À propos de moi",
-      "description1": "Je suis un développeur passionné par la création de sites web et d'applications beaux et fonctionnels. Tout comme l'immensité de l'univers, ma curiosité est sans fin et j'explore toujours de nouvelles technologies et techniques.",
-      "description2": "Avec une expertise dans les technologies web modernes, je crée des expériences digitales à la fois esthétiques et performantes.",
-      "button": "En savoir plus"
+      "heading": "À Propos",
+      "description1": "Je suis Gabriel Henrique, un développeur Full Cycle passionné par la transformation d'idées en solutions numériques qui impactent des vies. Avec une approche pratique et créative, je plonge tête la première dans chaque projet, qu'il s'agisse de créer des interfaces intuitives avec Nuxt.js, Vue et React, de concevoir des backends robustes avec NestJS et Fastify, ou d'optimiser des infrastructures avec Kubernetes et Dokploy. Mon parcours chez Bjsolutions et dans des dizaines de projets freelance m'a appris à fournir des résultats de haute qualité sous pression, toujours en quête d'innovation et d'efficacité. Je suis un résolveur de problèmes infatigable, avec un regard affûté pour le design et la performance, prêt à inspirer des équipes et à porter les projets d'entreprise à de nouveaux sommets avec mon énergie et ma polyvalence.",
+      "button": "Voir Mon CV"
     },
     "projectsSection": {
       "heading": "Projets",
-      "project1": "Tableau de bord cosmique",
-      "project1Desc": "Un tableau de bord analytique élégant avec des visualisations inspirées de l'espace",
-      "project2": "Social Nebuleux",
-      "project2Desc": "Plateforme de médias sociaux avec une interface unique inspirée de l'univers",
+      "project1": "Tableau Cosmique",
+      "project1Desc": "Un magnifique tableau de bord analytique avec des visualisations inspirées de l'espace",
+      "project2": "Nébuleuse Sociale",
+      "project2Desc": "Une plateforme de médias sociaux avec une interface unique inspirée de l'univers",
       "project3": "Orbit CMS",
-      "project3Desc": "Système de gestion de contenu doté d'une UX révolutionnaire"
+      "project3Desc": "Un système de gestion de contenu avec une expérience révolutionnaire"
     },
     "skillsSection": {
       "heading": "Compétences"
     },
     "contactSection": {
       "heading": "Contact",
-      "subheading": "Entrer en contact",
-      "description": "Un projet en tête ou vous souhaitez simplement dire bonjour ? N'hésitez pas à nous contacter !"
+      "subheading": "Prenez Contact",
+      "description": "Vous avez un projet en tête ou souhaitez simplement dire bonjour ? N'hésitez pas à me contacter !"
     },
     "footer": {
       "copyright": "© {year} Space Portfolio. Tous droits réservés."
     }
   },
   "HeroSection": {
-    "title": "Bienvenue sur Mon Portefeuille Spatial",
-    "subtitle": "Exploration de l'univers numérique avec le développement et la conception Web créatifs. Construire des expériences stellaires qui sont hors de ce monde.",
-    "button": "Découvrir Plus",
-    "contactButton": "Contactez-moi"
+    "title": "Gabriel Raposo",
+    "subtitle": "Explorer l'univers numérique avec un développement web et un design créatif. Créer des expériences stellaires qui sortent de l'ordinaire.",
+    "button": "En Savoir Plus",
+    "contactButton": "Télécharger Mon CV"
+  },
+  "ProjectsSection": {
+    "title": "Mes Projets sur GitHub",
+    "description": "Découvrez mes projets open source et mes travaux personnels sur GitHub.",
+    "viewAll": "Voir tous les projets",
+    "viewAllExternal": "Voir sur GitHub",
+    "noProjectsTitle": "Aucun projet trouvé",
+    "noProjectsDescription": "Il semble qu'aucun projet ne soit disponible pour le moment. Réessayez plus tard.",
+    "errorTitle": "Erreur lors du chargement des projets",
+    "tryAgain": "Réessayer",
+    "noDescription": "Aucune description disponible",
+    "showAll": "Afficher tous les projets",
+    "showLess": "Afficher moins"
   },
   "theme": {
     "dark": "Mode sombre",
-    "light": "Mode léger",
+    "light": "Mode clair",
     "system": "Par défaut du système"
   }
 }

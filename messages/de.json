@@ -2,41 +2,53 @@
   "HomePage": {
     "title": "Startseite",
     "aboutSection": {
-      "heading": "Über mich",
-      "description1": "Ich bin ein leidenschaftlicher Entwickler, der es liebt, schöne und funktionale Websites und Anwendungen zu erstellen. Wie das weite Universum ist auch meine Neugier unendlich, und ich erkunde ständig neue Technologien und Techniken.",
-      "description2": "Mit Fachkenntnissen in modernen Webtechnologien kreiere ich digitale Erlebnisse, die sowohl visuell beeindruckend als auch leistungsstark sind.",
-      "button": "Mehr erfahren"
+      "heading": "Über Mich",
+      "description1": "Ich bin Gabriel Henrique, ein leidenschaftlicher Full-Cycle-Entwickler, der von der Idee beseelt ist, Ideen in digitale Lösungen zu verwandeln, die Leben beeinflussen. Mit einem praktischen und kreativen Ansatz tauche ich in jedes Projekt ein, sei es beim Erstellen intuitiver Benutzeroberflächen mit Nuxt.js, Vue und React, beim Entwickeln robuster Backends mit NestJS und Fastify oder beim Optimieren von Infrastrukturen mit Kubernetes und Dokploy. Meine Erfahrungen bei Bjsolutions und in zahlreichen Freelance-Projekten haben mich gelehrt, unter Druck qualitativ hochwertige Ergebnisse zu liefern, stets auf der Suche nach Innovation und Effizienz. Ich bin ein unermüdlicher Problemlöser mit einem scharfen Blick für Design und Leistung, bereit, Teams zu inspirieren und Unternehmensprojekte auf ein neues Niveau zu heben.",
+      "button": "Meinen Lebenslauf ansehen"
     },
     "projectsSection": {
       "heading": "Projekte",
-      "project1": "Kosmisches Dashboard",
-      "project1Desc": "Ein wunderschönes Analyse-Dashboard mit weltrauminspirierten Visualisierungen",
-      "project2": "Nebula Social",
-      "project2Desc": "Soziale Medienplattform mit einer einzigartigen, vom All inspirierten Benutzeroberfläche",
+      "project1": "Kosmische Konsole",
+      "project1Desc": "Ein beeindruckendes analytisches Dashboard mit weltrauminspirierten Visualisierungen",
+      "project2": "Sozialer Nebel",
+      "project2Desc": "Eine Social-Media-Plattform mit einer einzigartigen, universumsinspirierten Benutzeroberfläche",
       "project3": "Orbit CMS",
-      "project3Desc": "Content-Management-System mit revolutionärem UX-Design"
+      "project3Desc": "Ein Content-Management-System mit einer revolutionären Benutzererfahrung"
     },
     "skillsSection": {
       "heading": "Fähigkeiten"
     },
     "contactSection": {
       "heading": "Kontakt",
-      "subheading": "Kontakt aufnehmen",
-      "description": "Haben Sie ein Projekt im Sinn oder möchten Sie einfach nur hallo sagen? Zögern Sie nicht, uns zu kontaktieren!"
+      "subheading": "In Kontakt treten",
+      "description": "Haben Sie ein Projekt im Kopf oder möchten Sie einfach nur hallo sagen? Zögern Sie nicht, mich zu kontaktieren!"
     },
     "footer": {
       "copyright": "© {year} Space Portfolio. Alle Rechte vorbehalten."
     }
   },
   "HeroSection": {
-    "title": "Willkommen in Meinem Weltraumportfolio",
-    "subtitle": "Het verkennen van het digitale universum met creatieve webontwikkeling en ontwerp. Stellaire ervaringen bouwen die niet van deze wereld zijn.",
-    "button": "Mehr Entdecken",
-    "contactButton": "Neem contact met mij op"
+    "title": "Gabriel Raposo",
+    "subtitle": "Erforschung des digitalen Universums mit kreativer Webentwicklung und Design. Erschaffung stellarer Erlebnisse, die außergewöhnlich sind.",
+    "button": "Mehr erfahren",
+    "contactButton": "Lebenslauf herunterladen"
+  },
+  "ProjectsSection": {
+    "title": "Meine GitHub-Projekte",
+    "description": "Schauen Sie sich meine Open-Source-Projekte und persönlichen Arbeiten auf GitHub an.",
+    "viewAll": "Alle Projekte ansehen",
+    "viewAllExternal": "Auf GitHub ansehen",
+    "noProjectsTitle": "Keine Projekte gefunden",
+    "noProjectsDescription": "Es sieht so aus, als wären derzeit keine Projekte verfügbar. Versuchen Sie es später erneut.",
+    "errorTitle": "Fehler beim Laden der Projekte",
+    "tryAgain": "Erneut versuchen",
+    "noDescription": "Keine Beschreibung verfügbar",
+    "showAll": "Alle Projekte anzeigen",
+    "showLess": "Weniger anzeigen"
   },
   "theme": {
-    "dark": "Donkere modus",
-    "light": "Lichtmodus",
-    "system": "Standaard systeem"
+    "dark": "Dunkler Modus",
+    "light": "Heller Modus",
+    "system": "Systemstandard"
   }
 }

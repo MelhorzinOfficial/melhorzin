@@ -1,20 +1,19 @@
 {
   "HomePage": {
-    "title": "Home Page",
+    "title": "Home",
     "aboutSection": {
       "heading": "About Me",
-      "description1": "I am Gabriel Henrique, a Full Cycle developer full of the passion for turning ideas into digital solutions that impact lives. With a practical and creative approach, head dive into each project, whether building intuitive interfaces with nuxt.js, vue and react, architecting robust backets with Nestjs and Fastify, or optimizing infrastructures with kubernetes and dokplay. My trajectory at BjSolations and dozens of freelas taught me how to deliver high quality pressure under pressure, always seeking innovation and efficiency. I am a tireless problem solving, with a keen eye for design and performance, ready to inspire teams and bring corporate projects to new levels with my energy and versatility.",
-      "description2": "With expertise in modern web technologies, I create visually impactful and high-performance digital experiences.",
-      "button": "View my resume"
+      "description1": "I'm Gabriel Henrique, a passionate Full Cycle Developer driven by transforming ideas into digital solutions that impact lives. With a practical and creative approach, I dive headfirst into every project, whether building intuitive interfaces with Nuxt.js, Vue, and React, architecting robust backends with NestJS and Fastify, or optimizing infrastructures with Kubernetes and Dokploy. My journey at Bjsolutions and dozens of freelance projects has taught me to deliver high-quality results under pressure, always seeking innovation and efficiency. I'm a relentless problem-solver with a keen eye for design and performance, ready to inspire teams and take corporate projects to new heights with my energy and versatility.",
+      "button": "View My Resume"
     },
     "projectsSection": {
       "heading": "Projects",
       "project1": "Cosmic Dashboard",
-      "project1Desc": "A beautiful analytics dashboard with space-inspired visualizations",
-      "project2": "Nebula Social",
-      "project2Desc": "Social media platform with a unique universe-inspired interface",
+      "project1Desc": "A stunning analytical dashboard with space-inspired visualizations",
+      "project2": "Social Nebula",
+      "project2Desc": "A social media platform with a unique universe-inspired interface",
       "project3": "Orbit CMS",
-      "project3Desc": "Content management system with a revolutionary experience"
+      "project3Desc": "A content management system with a revolutionary experience"
     },
     "skillsSection": {
       "heading": "Skills"
@@ -29,10 +28,10 @@
     }
   },
   "HeroSection": {
-    "title": "Welcome to My Space Portfolio",
-    "subtitle": "Exploring the digital universe with creative Web development and design. Building stellar experiences that are out of this world.",
+    "title": "Gabriel Raposo",
+    "subtitle": "Exploring the digital universe with creative web development and design. Building stellar experiences that are out of this world.",
     "button": "Discover More",
-    "contactButton": "Contact Me"
+    "contactButton": "Download Resume"
   },
   "ProjectsSection": {
     "title": "My GitHub Projects",
@@ -40,7 +39,7 @@
     "viewAll": "View all projects",
     "viewAllExternal": "View on GitHub",
     "noProjectsTitle": "No projects found",
-    "noProjectsDescription": "It seems there are no projects available at the moment. Please try again later.",
+    "noProjectsDescription": "It looks like there are no projects available at the moment. Try again later.",
     "errorTitle": "Error loading projects",
     "tryAgain": "Try again",
     "noDescription": "No description available",
