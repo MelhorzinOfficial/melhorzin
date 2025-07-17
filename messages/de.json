@@ -31,7 +31,8 @@
   "HeroSection": {
     "title": "Willkommen in Meinem Weltraumportfolio",
     "subtitle": "Het verkennen van het digitale universum met creatieve webontwikkeling en ontwerp. Stellaire ervaringen bouwen die niet van deze wereld zijn.",
-    "button": "Mehr Entdecken"
+    "button": "Mehr Entdecken",
+    "contactButton": "Neem contact met mij op"
   },
   "theme": {
     "dark": "Donkere modus",

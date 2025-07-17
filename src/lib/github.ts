@@ -10,6 +10,7 @@ export interface GithubProject {
   created_at: string;
   updated_at: string;
   pushed_at: string;
+  fork: boolean;
 }
 
 export async function getGithubProjects(username: string = "raposoG"): Promise<GithubProject[]> {

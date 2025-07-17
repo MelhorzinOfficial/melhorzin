@@ -3,9 +3,9 @@
     "title": "Home Page",
     "aboutSection": {
       "heading": "About Me",
-      "description1": "I'm a developer passionate about creating beautiful and functional websites and applications. Like the vast universe, my curiosity is boundless, and I'm always exploring new technologies and techniques.",
+      "description1": "I am Gabriel Henrique, a Full Cycle developer full of the passion for turning ideas into digital solutions that impact lives. With a practical and creative approach, head dive into each project, whether building intuitive interfaces with nuxt.js, vue and react, architecting robust backets with Nestjs and Fastify, or optimizing infrastructures with kubernetes and dokplay. My trajectory at BjSolations and dozens of freelas taught me how to deliver high quality pressure under pressure, always seeking innovation and efficiency. I am a tireless problem solving, with a keen eye for design and performance, ready to inspire teams and bring corporate projects to new levels with my energy and versatility.",
       "description2": "With expertise in modern web technologies, I create visually impactful and high-performance digital experiences.",
-      "button": "Learn more"
+      "button": "View my resume"
     },
     "projectsSection": {
       "heading": "Projects",
@@ -31,7 +31,8 @@
   "HeroSection": {
     "title": "Welcome to My Space Portfolio",
     "subtitle": "Exploring the digital universe with creative Web development and design. Building stellar experiences that are out of this world.",
-    "button": "Discover More"
+    "button": "Discover More",
+    "contactButton": "Contact Me"
   },
   "ProjectsSection": {
     "title": "My GitHub Projects",

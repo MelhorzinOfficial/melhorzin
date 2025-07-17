@@ -3,9 +3,8 @@
     "title": "Página Inicial",
     "aboutSection": {
       "heading": "Sobre Mim",
-      "description1": "Sou um desenvolvedor apaixonado por criar websites e aplicações bonitos e funcionais. Assim como o vasto universo, minha curiosidade é infinita e estou sempre explorando novas tecnologias e técnicas.",
-      "description2": "Com expertise em tecnologias web modernas, crio experiências digitais visualmente impactantes e de alta performance.",
-      "button": "Saiba mais"
+      "description1": "Sou Gabriel Henrique, um desenvolvedor Full Cycle Pleno movido pela paixão de transformar ideias em soluções digitais que impactam vidas. Com uma abordagem prática e criativa, mergulho de cabeça em cada projeto, seja construindo interfaces intuitivas com Nuxt.js, Vue e React, arquitetando backends robustos com NestJS e Fastify, ou otimizando infraestruturas com Kubernetes e Dokploy. Minha trajetória na Bjsolutions e em dezenas de freelas me ensinou a entregar resultados de alta qualidade sob pressão, sempre buscando inovação e eficiência. Sou um resolvedor de problemas incansável, com um olhar apurado para design e performance, pronto para inspirar equipes e levar projetos corporativos a novos patamares com minha energia e versatilidade.",
+      "button": "Visualizar Meu currículo"
     },
     "projectsSection": {
       "heading": "Projetos",
@@ -31,7 +30,8 @@
   "HeroSection": {
     "title": "Bem-vindo ao Meu Portfólio Espacial",
     "subtitle": "Explorando o universo digital com desenvolvimento e design criativos da Web. Construindo experiências estelares que estão fora deste mundo.",
-    "button": "Descubra Mais"
+    "button": "Descubra Mais",
+    "contactButton": "Baixar Currículo"
   },
   "ProjectsSection": {
     "title": "Meus Projetos no GitHub",

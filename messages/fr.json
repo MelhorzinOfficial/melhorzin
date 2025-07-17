@@ -31,7 +31,8 @@
   "HeroSection": {
     "title": "Bienvenue sur Mon Portefeuille Spatial",
     "subtitle": "Exploration de l'univers numérique avec le développement et la conception Web créatifs. Construire des expériences stellaires qui sont hors de ce monde.",
-    "button": "Découvrir Plus"
+    "button": "Découvrir Plus",
+    "contactButton": "Contactez-moi"
   },
   "theme": {
     "dark": "Mode sombre",

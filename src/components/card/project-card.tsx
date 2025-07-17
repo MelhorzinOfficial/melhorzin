@@ -95,7 +95,7 @@ export function ProjectCard({ title, description, image, tags, githubUrl, homepa
     return gradients[gradientIndex];
   };
 
-  const projectImage = getProjectImage(title, language);
+  const projectImage = getProjectImage(title, language ?? null);
   const gradientStyle = getGradientStyle(title);
 
   const cardContent = (
