@@ -1,4 +1,5 @@
 # 🔐 Epic 01: Autenticação
+
 ## Sistema de Autenticação via GitHub OAuth
 
 ---
@@ -8,12 +9,14 @@
 **Epic ID:** EPIC-001  
 **Sprint:** 1  
 **Prioridade:** Alta  
-**Estimativa:** 2 semanas  
+**Estimativa:** 2 semanas
 
 ### Objetivo
+
 Implementar um sistema completo de autenticação utilizando GitHub OAuth, permitindo que usuários da comunidade acessem a plataforma usando suas contas do GitHub existentes.
 
 ### Benefícios
+
 - Onboarding simplificado (sem criar nova conta)
 - Dados do perfil importados automaticamente
 - Integração natural com o ecossistema dev
@@ -26,11 +29,13 @@ Implementar um sistema completo de autenticação utilizando GitHub OAuth, permi
 ### US-001: Login com GitHub ⭐ Core
 
 **Narrativa:**
+
 > Como visitante do Melhorzin  
 > Quero fazer login usando minha conta do GitHub  
 > Para acessar as funcionalidades exclusivas para membros
 
 **Critérios de Aceite:**
+
 ```gherkin
 Cenário: Login bem-sucedido via GitHub
   Dado que estou na página inicial
@@ -55,28 +60,30 @@ Cenário: Acesso recorrente
 
 **Tasks Técnicas:**
 
-| ID | Task | Responsável | Status |
-|----|------|-------------|--------|
-| T001 | Configurar Passport GitHub Strategy no NestJS | Backend | ⬜ |
-| T002 | Criar endpoint GET /api/auth/github | Backend | ⬜ |
-| T003 | Criar endpoint GET /api/auth/github/callback | Backend | ⬜ |
-| T004 | Implementar criação/atualização de usuário | Backend | ⬜ |
-| T005 | Gerar JWT access token | Backend | ⬜ |
-| T006 | Criar página /login | Frontend | ⬜ |
-| T007 | Implementar botão GitHub OAuth | Frontend | ⬜ |
-| T008 | Criar AuthContext/Provider | Frontend | ⬜ |
-| T009 | Armazenar token (httpOnly cookie) | Full Stack | ⬜ |
+| ID   | Task                                          | Responsável | Status |
+| ---- | --------------------------------------------- | ----------- | ------ |
+| T001 | Configurar Passport GitHub Strategy no NestJS | Backend     | ⬜     |
+| T002 | Criar endpoint GET /api/auth/github           | Backend     | ⬜     |
+| T003 | Criar endpoint GET /api/auth/github/callback  | Backend     | ⬜     |
+| T004 | Implementar criação/atualização de usuário    | Backend     | ⬜     |
+| T005 | Gerar JWT access token                        | Backend     | ⬜     |
+| T006 | Criar página /login                           | Frontend    | ⬜     |
+| T007 | Implementar botão GitHub OAuth                | Frontend    | ⬜     |
+| T008 | Criar AuthContext/Provider                    | Frontend    | ⬜     |
+| T009 | Armazenar token (httpOnly cookie)             | Full Stack  | ⬜     |
 
 ---
 
 ### US-002: Persistência de Sessão
 
 **Narrativa:**
+
 > Como usuário autenticado  
 > Quero que minha sessão permaneça ativa  
 > Para não precisar fazer login toda vez que acesso
 
 **Critérios de Aceite:**
+
 ```gherkin
 Cenário: Sessão mantida após fechar browser
   Dado que estou logado
@@ -99,23 +106,25 @@ Cenário: Refresh token automático
 
 **Tasks Técnicas:**
 
-| ID | Task | Status |
-|----|------|--------|
-| T010 | Implementar refresh token no backend | ⬜ |
-| T011 | Criar endpoint POST /api/auth/refresh | ⬜ |
-| T012 | Implementar interceptor de refresh no frontend | ⬜ |
-| T013 | Criar middleware de validação de token | ⬜ |
+| ID   | Task                                           | Status |
+| ---- | ---------------------------------------------- | ------ |
+| T010 | Implementar refresh token no backend           | ⬜     |
+| T011 | Criar endpoint POST /api/auth/refresh          | ⬜     |
+| T012 | Implementar interceptor de refresh no frontend | ⬜     |
+| T013 | Criar middleware de validação de token         | ⬜     |
 
 ---
 
 ### US-003: Logout
 
 **Narrativa:**
+
 > Como usuário autenticado  
 > Quero poder sair da minha conta  
 > Para proteger minha sessão em dispositivos compartilhados
 
 **Critérios de Aceite:**
+
 ```gherkin
 Cenário: Logout bem-sucedido
   Dado que estou logado
@@ -132,23 +141,25 @@ Cenário: Tokens invalidados
 
 **Tasks Técnicas:**
 
-| ID | Task | Status |
-|----|------|--------|
-| T014 | Criar endpoint POST /api/auth/logout | ⬜ |
-| T015 | Invalidar tokens no Redis | ⬜ |
-| T016 | Implementar função logout no frontend | ⬜ |
-| T017 | Limpar estado de autenticação | ⬜ |
+| ID   | Task                                  | Status |
+| ---- | ------------------------------------- | ------ |
+| T014 | Criar endpoint POST /api/auth/logout  | ⬜     |
+| T015 | Invalidar tokens no Redis             | ⬜     |
+| T016 | Implementar função logout no frontend | ⬜     |
+| T017 | Limpar estado de autenticação         | ⬜     |
 
 ---
 
 ### US-004: Validação de Sessão
 
 **Narrativa:**
+
 > Como desenvolvedor  
 > Quero um endpoint para validar a sessão atual  
 > Para verificar se o usuário está autenticado
 
 **Critérios de Aceite:**
+
 ```gherkin
 Cenário: Sessão válida
   Dado que tenho um token válido
@@ -164,11 +175,11 @@ Cenário: Sessão inválida
 
 **Tasks Técnicas:**
 
-| ID | Task | Status |
-|----|------|--------|
-| T018 | Criar endpoint GET /api/auth/me | ⬜ |
-| T019 | Criar JwtAuthGuard | ⬜ |
-| T020 | Implementar hook useAuth no frontend | ⬜ |
+| ID   | Task                                 | Status |
+| ---- | ------------------------------------ | ------ |
+| T018 | Criar endpoint GET /api/auth/me      | ⬜     |
+| T019 | Criar JwtAuthGuard                   | ⬜     |
+| T020 | Implementar hook useAuth no frontend | ⬜     |
 
 ---
 
@@ -215,19 +226,19 @@ Cenário: Sessão inválida
 ```typescript
 // Access Token (15 min)
 interface AccessTokenPayload {
-  sub: string;      // User ID
-  username: string;
-  role: 'MEMBER' | 'MODERATOR' | 'ADMIN';
-  iat: number;
-  exp: number;
+	sub: string; // User ID
+	username: string;
+	role: 'MEMBER' | 'MODERATOR' | 'ADMIN';
+	iat: number;
+	exp: number;
 }
 
 // Refresh Token (7 days)
 interface RefreshTokenPayload {
-  sub: string;
-  jti: string;      // Token ID (para invalidação)
-  iat: number;
-  exp: number;
+	sub: string;
+	jti: string; // Token ID (para invalidação)
+	iat: number;
+	exp: number;
 }
 ```
 
@@ -278,5 +289,5 @@ NEXT_PUBLIC_API_URL=http://localhost:3001
 
 ---
 
-*Criado em: 2025-12-09*  
-*Última atualização: 2025-12-09*
+_Criado em: 2025-12-09_  
+_Última atualização: 2025-12-09_
