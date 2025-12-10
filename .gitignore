@@ -7,3 +7,5 @@
 .windsurf
 bmad-custom-modules-src
 bmad-custom-src
+./backend
+./frontend
