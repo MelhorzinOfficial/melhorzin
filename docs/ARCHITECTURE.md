@@ -1,4 +1,5 @@
 # 🏗️ Arquitetura do Sistema
+
 ## Melhorzin - Comunidade Dev
 
 ---
@@ -46,30 +47,30 @@
 
 ### 2.1 Frontend
 
-| Tecnologia | Versão | Propósito |
-|------------|--------|-----------|
-| Next.js | 15.x | Framework React com App Router |
-| React | 19.x | Biblioteca UI |
-| TypeScript | 5.x | Type safety |
-| Tailwind CSS | 3.4.x | Estilização utility-first |
-| shadcn/ui | latest | Componentes UI |
-| TanStack Query | 5.x | Server state management |
-| Framer Motion | 11.x | Animações |
-| Zod | 3.x | Validação de schemas |
-| React Hook Form | 7.x | Gerenciamento de formulários |
+| Tecnologia      | Versão | Propósito                      |
+| --------------- | ------ | ------------------------------ |
+| Next.js         | 15.x   | Framework React com App Router |
+| React           | 19.x   | Biblioteca UI                  |
+| TypeScript      | 5.x    | Type safety                    |
+| Tailwind CSS    | 3.4.x  | Estilização utility-first      |
+| shadcn/ui       | latest | Componentes UI                 |
+| TanStack Query  | 5.x    | Server state management        |
+| Framer Motion   | 11.x   | Animações                      |
+| Zod             | 3.x    | Validação de schemas           |
+| React Hook Form | 7.x    | Gerenciamento de formulários   |
 
 ### 2.2 Backend
 
-| Tecnologia | Versão | Propósito |
-|------------|--------|-----------|
-| NestJS | 10.x | Framework Node.js |
-| TypeScript | 5.x | Type safety |
-| Prisma | 5.x | ORM |
-| PostgreSQL | 16.x | Banco de dados principal |
-| Redis | 7.x | Cache e sessões |
-| Passport | 0.7.x | Autenticação |
-| JWT | - | Tokens de autenticação |
-| class-validator | - | Validação de DTOs |
+| Tecnologia      | Versão | Propósito                |
+| --------------- | ------ | ------------------------ |
+| NestJS          | 10.x   | Framework Node.js        |
+| TypeScript      | 5.x    | Type safety              |
+| Prisma          | 5.x    | ORM                      |
+| PostgreSQL      | 16.x   | Banco de dados principal |
+| Redis           | 7.x    | Cache e sessões          |
+| Passport        | 0.7.x  | Autenticação             |
+| JWT             | -      | Tokens de autenticação   |
+| class-validator | -      | Validação de DTOs        |
 
 ---
 
@@ -211,12 +212,12 @@ model User {
   role          Role      @default(MEMBER)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
-  
+
   posts         Post[]
   comments      Comment[]
   resources     Resource[]
   likes         Like[]
-  
+
   @@map("users")
 }
 
@@ -237,14 +238,14 @@ model Post {
   publishedAt DateTime?
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
-  
+
   authorId    String
   author      User      @relation(fields: [authorId], references: [id])
-  
+
   tags        Tag[]
   comments    Comment[]
   likes       Like[]
-  
+
   @@map("posts")
 }
 
@@ -253,7 +254,7 @@ model Tag {
   name  String @unique
   slug  String @unique
   posts Post[]
-  
+
   @@map("tags")
 }
 
@@ -262,30 +263,30 @@ model Comment {
   content   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  
+
   authorId  String
   author    User     @relation(fields: [authorId], references: [id])
-  
+
   postId    String
   post      Post     @relation(fields: [postId], references: [id])
-  
+
   parentId  String?
   parent    Comment?  @relation("CommentReplies", fields: [parentId], references: [id])
   replies   Comment[] @relation("CommentReplies")
-  
+
   @@map("comments")
 }
 
 model Like {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
-  
+
   userId    String
   user      User     @relation(fields: [userId], references: [id])
-  
+
   postId    String?
   post      Post?    @relation(fields: [postId], references: [id])
-  
+
   @@unique([userId, postId])
   @@map("likes")
 }
@@ -300,10 +301,10 @@ model Resource {
   approved    Boolean  @default(false)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  
+
   submittedById String
   submittedBy   User   @relation(fields: [submittedById], references: [id])
-  
+
   @@map("resources")
 }
 ```
@@ -314,41 +315,41 @@ model Resource {
 
 ### 5.1 Autenticação
 
-| Método | Endpoint | Descrição |
-|--------|----------|-----------|
-| GET | `/api/auth/github` | Inicia OAuth GitHub |
-| GET | `/api/auth/github/callback` | Callback OAuth |
-| POST | `/api/auth/refresh` | Refresh token |
-| POST | `/api/auth/logout` | Logout |
-| GET | `/api/auth/me` | Usuário atual |
+| Método | Endpoint                    | Descrição           |
+| ------ | --------------------------- | ------------------- |
+| GET    | `/api/auth/github`          | Inicia OAuth GitHub |
+| GET    | `/api/auth/github/callback` | Callback OAuth      |
+| POST   | `/api/auth/refresh`         | Refresh token       |
+| POST   | `/api/auth/logout`          | Logout              |
+| GET    | `/api/auth/me`              | Usuário atual       |
 
 ### 5.2 Usuários
 
-| Método | Endpoint | Descrição |
-|--------|----------|-----------|
-| GET | `/api/users` | Lista usuários |
-| GET | `/api/users/:id` | Busca usuário |
-| PATCH | `/api/users/:id` | Atualiza perfil |
-| GET | `/api/users/:id/posts` | Posts do usuário |
+| Método | Endpoint               | Descrição        |
+| ------ | ---------------------- | ---------------- |
+| GET    | `/api/users`           | Lista usuários   |
+| GET    | `/api/users/:id`       | Busca usuário    |
+| PATCH  | `/api/users/:id`       | Atualiza perfil  |
+| GET    | `/api/users/:id/posts` | Posts do usuário |
 
 ### 5.3 Posts
 
-| Método | Endpoint | Descrição |
-|--------|----------|-----------|
-| GET | `/api/posts` | Lista posts |
-| POST | `/api/posts` | Cria post |
-| GET | `/api/posts/:slug` | Busca post |
-| PATCH | `/api/posts/:id` | Atualiza post |
-| DELETE | `/api/posts/:id` | Remove post |
-| POST | `/api/posts/:id/like` | Curtir post |
+| Método | Endpoint              | Descrição     |
+| ------ | --------------------- | ------------- |
+| GET    | `/api/posts`          | Lista posts   |
+| POST   | `/api/posts`          | Cria post     |
+| GET    | `/api/posts/:slug`    | Busca post    |
+| PATCH  | `/api/posts/:id`      | Atualiza post |
+| DELETE | `/api/posts/:id`      | Remove post   |
+| POST   | `/api/posts/:id/like` | Curtir post   |
 
 ### 5.4 Recursos
 
-| Método | Endpoint | Descrição |
-|--------|----------|-----------|
-| GET | `/api/resources` | Lista recursos |
-| POST | `/api/resources` | Sugere recurso |
-| PATCH | `/api/resources/:id/approve` | Aprova recurso |
+| Método | Endpoint                     | Descrição      |
+| ------ | ---------------------------- | -------------- |
+| GET    | `/api/resources`             | Lista recursos |
+| POST   | `/api/resources`             | Sugere recurso |
+| PATCH  | `/api/resources/:id/approve` | Aprova recurso |
 
 ---
 
@@ -376,11 +377,11 @@ model Resource {
 
 ```json
 {
-  "sub": "user_cuid",
-  "username": "johndoe",
-  "role": "MEMBER",
-  "iat": 1702123456,
-  "exp": 1702209856
+	"sub": "user_cuid",
+	"username": "johndoe",
+	"role": "MEMBER",
+	"iat": 1702123456,
+	"exp": 1702209856
 }
 ```
 
@@ -390,13 +391,13 @@ model Resource {
 
 ### 7.1 Níveis de Cache
 
-| Dado | TTL | Estratégia |
-|------|-----|------------|
-| Sessão usuário | 7 dias | Redis |
-| Lista de membros | 5 min | Redis + SWR |
-| Posts populares | 10 min | Redis |
-| Recursos | 1 hora | Redis |
-| Assets estáticos | 1 ano | CDN/Browser |
+| Dado             | TTL    | Estratégia  |
+| ---------------- | ------ | ----------- |
+| Sessão usuário   | 7 dias | Redis       |
+| Lista de membros | 5 min  | Redis + SWR |
+| Posts populares  | 10 min | Redis       |
+| Recursos         | 1 hora | Redis       |
+| Assets estáticos | 1 ano  | CDN/Browser |
 
 ---
 
@@ -407,13 +408,13 @@ model Resource {
 ```yaml
 # docker-compose.yml
 services:
-  postgres:
-    image: postgres:16
-    ports: ["5432:5432"]
-    
-  redis:
-    image: redis:7
-    ports: ["6379:6379"]
+ postgres:
+  image: postgres:16
+  ports: ['5432:5432']
+
+ redis:
+  image: redis:7
+  ports: ['6379:6379']
 ```
 
 ### 8.2 Produção (Sugestão)
